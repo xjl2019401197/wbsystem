@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="./static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="./static/css/bootstrap.css" rel="stylesheet">
+    <link href="./static/css/fontawesome-free-5.1.1-web/css/all.min.css" rel="stylesheet">
+    <link href="./static/css/animate.css" rel="stylesheet">
+    <link href="./static/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="./static/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="./static/js/layui/css/layui.css" rel="stylesheet">
+    <link href="./static/css/common_zh.css" rel="stylesheet">
+</head>
+<body class="fixed-sidebar full-height-layout gray-bg" >
+<div class="wrapper wrapper-content animated fadeInRight" id="app" style="margin-bottom: 30px">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox">
+                <div class="ibox-title" style="background-color: #f3f3f4">
+                    <h3 style="font-weight: bold;font-size: 20px; margin: 20px 0px">当前设备使用情况</h3>
+                </div>
+                <div class="ibox-content">
+                    <div class="profile">
+                        <div class="item" v-for="(item , index)  in projectList">
+                            <div class="small">{{item.name}}</div>
+                            <div class="strong">{{item.reduce}}/{{item.total}}台</div>
+                        </div>
+
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="main" style="height: 400px; width: 1000px;">
+
+</div>
+
+<!-- 全局js -->
+<script src="./static/js/jquery.min.js?v=2.1.4"></script>
+
+<script src="./static/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="./static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="./static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="./static/js/plugins/layer/layer.min.js"></script>
+
+<!-- 自定义js -->
+<script src="./static/js/hplus.js?v=4.1.0"></script>
+<script type="text/javascript" src="./static/js/contabs.js"></script>
+
+<!-- 第三方插件 -->
+<script src="./static/js/plugins/pace/pace.min.js"></script>
+
+<script src="./static/js/layui/layui.all.js"></script>
+<script src="./static/js/vue.2.6.11.js"></script>
+<script src="./static/js/axios.js"></script>
+<script src="./static/js/echarts.min.js"></script>
+
+<script type="text/javascript" src="./static/js/content.js"></script>
+<script>
+
+    var chartDom = document.getElementById('main');
+    var myChart = echarts.init(chartDom);
+    var option;
+
+    option = {
+        title: {
+            text: '近七天设备使用情况'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            data: ['标准版', '高级版', '尊享版', '至尊版']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        toolbox: {
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        },
+        yAxis: {
+            type: 'value'
+        },
+        series: [
+            {
+                name: '标准版',
+                type: 'line',
+                stack: 'Total',
+                data: [120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+                name: '高级版',
+                type: 'line',
+                stack: 'Total',
+                data: [220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+                name: '尊享版',
+                type: 'line',
+                stack: 'Total',
+                data: [150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+                name: '至尊版',
+                type: 'line',
+                stack: 'Total',
+                data: [320, 332, 301, 334, 390, 330, 320]
+            },
+
+        ]
+    };
+
+    option && myChart.setOption(option);
+
+</script>
+<script th:inline="javascript">
+
+
+    var zcardId = "";
+    var zequipId = "";
+
+    const vue = new Vue({
+        el: '#app',
+        data: {
+
+            projectList: [{
+                "name": "",
+                "total": 0,
+                "reduce": 0
+            }],
+            state: 1
+            // projectTypeList: [],
+
+        },
+        mounted() {
+            let me = this;
+            $.ajax({
+                url: "/equip/useDetails",
+                type: "get",
+                success: function (data) {
+                    me.projectList = data;
+                }
+            });
+        }
+    });
+</script>
+<style lang="scss" scoped>
+    .profile {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 20px;
+        background-color: white;
+    }
+
+    .item {
+        width: 100%;
+        text-align: center;
+        border-right: 1px solid #ddd;
+    }
+
+    .small {
+    }
+
+    .strong {
+        margin-top: 10px;
+        font-size: 20px;
+    }
+
+    last-child {
+        border-right: none;
+    }
+
+
+</style>
+</body>
+</html>

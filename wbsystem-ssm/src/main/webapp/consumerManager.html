@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <title>消费清单</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <meta name="keywords" content="消费清单">
+    <meta name="description" content="消费清单">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html"/>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="./static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="./static/css/fontawesome-free-5.1.1-web/css/all.min.css" rel="stylesheet">
+    <link href="./static/css/animate.css" rel="stylesheet">
+    <link href="./static/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="./static/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="./static/js/layui/css/layui.css" rel="stylesheet">
+    <link href="./static/css/common_zh.css" rel="stylesheet">
+
+    <style>
+        /*.table.table-striped.table-bordered.table-hover.table_center tr:hover{*/
+        /*    background-color: #62A8EA;*/
+        /*}*/
+    </style>
+
+</head>
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight" id="app">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>
+                        <i class="fa fa-user"></i><span class="nav-label">会员管理</span>
+                    </h5>
+                    <div class="ibox-search">
+                        <form class="form-inline" method="get" action="##"
+                              id="form1">
+                            <div class="input-group">
+                                <input type="text" id="level2" name="level2"
+                                       v-model="startTime" placeholder="开始时间"
+                                       class="input-sm form-control">
+                                <span class="input-group-btn">
+                                <input type="text" id="level3" name="level2"
+                                       v-model="endTime" placeholder="结束时间"
+                                       class="input-sm form-control">
+                                    <span class="input-group-btn">
+                                     <input type="text" id="phone2" name="phone2"
+                                            v-model="type" placeholder="类型"
+                                            class="input-sm form-control">
+                                        <span class="input-group-btn">
+										<button type="button" @click="search()"
+                                                class="btn btn-sm btn-success">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!--                    <div class="ibox-tools">-->
+                    <!--                        <a class="collapse-link btn-xs"><span-->
+                    <!--                                class="glyphicon-chevron-up glyphicon" aria-hidden="true"></span></a>-->
+                    <!--                        <a class="btn-xs" @click="add()" href="javascript:void(0)">-->
+                    <!--                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>-->
+                    <!--                        </a>-->
+                    <!--                    </div>-->
+                </div>
+                <div class="ibox-content">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover table_center">
+                            <thead>
+                            <tr>
+                                <th>用户Id</th>
+                                <th>会员Id</th>
+                                <th>上机时间</th>
+                                <th>下机时间</th>
+                                <th>消费金额</th>
+                                <!--                                <th v-if="user.type == 1">操作</th>-->
+                                <!--                                <th v-if="user.type == 1">操作</th>-->
+                                <!--                                <th v-if="user.type == 1">充值</th>-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr v-for="(item , index)  in consumerList">
+                                <td>
+                                    {{item.userId}}
+                                </td>
+                                <td>
+                                    {{item.cardId}}
+                                </td>
+                                <td>
+                                    {{item.startTime}}
+                                </td>
+                                <td>
+                                    {{item.endTime}}
+                                </td>
+                                <td>
+                                    {{item.consumeMoney}}(元)
+                                </td>
+                                <!--                                <td v-if="user.type != 1">-->
+                                <!--                                    <button type="button" @click="kaiji(item)" class="btn btn-warning">开机-->
+                                <!--                                    </button>-->
+                                <!--                                </td>-->
+                                <!--                                <td v-if="user.type != 1">-->
+                                <!--                                    <button type="button" @click="del(item.cardId)" class="btn btn-danger">删除-->
+                                <!--                                    </button>-->
+                                <!--                                </td>-->
+                                <!--                                <td v-if="user.type != 1">-->
+                                <!--                                    <button type="button" @click="topUp(item.cardId)" class="btn btn-danger">充值-->
+                                <!--                                    </button>-->
+                                <!--                                </td>-->
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--                    <div class="row">${pageResult.pageHtml}</div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 全局js -->
+<script src="./static/js/jquery.min.js?v=2.1.4"></script>
+
+<script src="./static/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="./static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="./static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="./static/js/plugins/layer/layer.min.js"></script>
+
+<!-- 自定义js -->
+<script src="./static/js/hplus.js?v=4.1.0"></script>
+<script type="text/javascript" src="./static/js/contabs.js"></script>
+
+<!-- 第三方插件 -->
+<script src="./static/js/plugins/pace/pace.min.js"></script>
+
+<script src="./static/js/layui/layui.all.js"></script>
+<script src="./static/js/vue.2.6.11.js"></script>
+<script src="./static/js/axios.js"></script>
+
+<script type="text/javascript" src="./static/js/content.js"></script>
+
+<script type="text/javascript">
+    layui.use(['layer', 'form'], function () {
+        var layer = layui.layer
+            , form = layui.form;
+    });
+
+</script>
+
+<script>
+    function keyPress() {
+        debugger;
+        var keyCode = event.keyCode;
+        if ((keyCode >= 48 && keyCode <= 57)) {
+            event.returnValue = true;
+        } else {
+            event.returnValue = false;
+        }
+    }
+
+    function closeLayer() {
+        layer.close(layer.index);
+    }
+
+    // $('#save').click(function () {
+    //
+    // });
+</script>
+
+<script th:inline="javascript">
+
+    var zcardId = "";
+    var zuserId = "";
+
+    const vue = new Vue({
+        el: '#app',
+        data: {
+            user: {},
+            consumerList: [{
+                "cardId": 1,
+                "cardType": 0,
+                "createUser": 0,
+                "level": 0,
+                "sex": 0,
+                "spendMoney": 0,
+                "totalMoney": 10,
+                "updateUser": 0,
+                "userId": 1
+            }],
+            // projectTypeList: [],
+            startTime: "",
+            endTime: "",
+            type: "",
+            cardId: ""
+        },
+        mounted() {
+            let me = this;
+            $.ajax({
+                url: "/user/getUserBySession.do",
+                type: "get",
+                success: function (data) {
+                    me.user = data;
+                }
+            });
+            $.ajax({
+                url: "/consumerList",
+                type: "get",
+                success: function (data) {
+                    me.consumerList = data;
+                }
+            });
+            // $.ajax({
+            //     url: "/projectType/getAllProjectTypeList.do",
+            //     type: "get",
+            //     success: function (data) {
+            //         me.projectTypeList = data;
+            //     }
+            // });
+        },
+        methods: {
+            add: function () {
+                layer.open({
+                    type: 1,
+                    title: false,
+                    //closeBtn: 0,
+                    // area: ['45%', '75%'],
+                    area: ['55%', '93%'],
+                    //skin: 'layui-layer-nobg', //没有背景色
+                    shadeClose: true,
+                    content: $('#addProject')
+                });
+            },
+            details: function (id) {
+                $("#zcardId").val(id);
+                layer.open({
+                    type: 1,
+                    title: false,
+                    //closeBtn: 0,
+                    // area: ['45%', '75%'],
+                    area: ['55%', '93%'],
+                    //skin: 'layui-layer-nobg', //没有背景色
+                    shadeClose: true,
+                    content: $('#details'),
+                    success: function (layero, index) {
+                        vue3.flushMe();
+                    },
+                });
+            },
+            topUp: function (id) {
+                $("#zcardId").val(id);
+                layer.open({
+                    type: 1,
+                    title: false,
+                    //closeBtn: 0,
+                    // area: ['45%', '75%'],
+                    area: ['55%', '93%'],
+                    //skin: 'layui-layer-nobg', //没有背景色
+                    shadeClose: true,
+                    content: $('#topUp'),
+                    success: function (layero, index) {
+                        vue3.flushMe();
+                    },
+                });
+            },
+            kaiji: function (item) {
+                $.ajax({
+                    url: "/consumerAdd?cardId=" + item.cardId + "&userId=" + item.userId,
+                    type: "get",
+                    success: function (data) {
+                        if (data === 'true') {
+                            layer.msg("开机成功", {
+                                icon: 6,
+                                time: 2000
+                            }, function () {
+                                location.reload();
+                            })
+                        } else {
+                            layer.msg("开机失败", {
+                                icon: 5,
+                                time: 2000
+                            })
+                        }
+                    }
+                });
+            },
+            update: function (id) {
+                layer.open({
+                    type: 2,
+                    title: false,
+                    //closeBtn: 0,
+                    // area: ['45%', '75%'],
+                    area: ['55%', '93%'],
+                    //skin: 'layui-layer-nobg', //没有背景色
+                    shadeClose: true,
+                    content: 'http://localhost:8080/updateProject.html?id=' + id
+                });
+            },
+            del: function (id) {
+                $.ajax({
+                    url: "/project/del.do",
+                    type: "get",
+                    data: {
+                        "id": id
+                    },
+                    success: function (data) {
+                        if (data === true) {
+                            layer.msg("删除成功", {
+                                icon: 6,
+                                time: 2000
+                            }, function () {
+                                location.reload();
+                            })
+                        } else {
+                            layer.msg("删除失败", {
+                                icon: 5,
+                                time: 2000
+                            })
+                        }
+                    }
+                });
+            },
+
+            search: function () {
+                let me = this;
+                $.ajax({
+                    url: "/consumerList",
+                    type: "get",
+                    data: {
+                        "startTime": this.startTime,
+                        "endTime": this.endTime,
+                        "type": this.type,
+                    },
+                    success: function (data) {
+                        me.consumerList = data;
+                    }
+                });
+            }
+        }
+    })
+</script>
+
+</body>
+
+</html>

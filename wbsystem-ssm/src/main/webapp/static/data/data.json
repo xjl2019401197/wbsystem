@@ -1,0 +1,35 @@
+{
+
+  "name": [
+    {
+      "name": "标准版",
+      "name": "高级版",
+      "name": "尊享版",
+      "name": "至尊版"
+    }
+  ],
+  "type": [
+    "Inter i5-9400F 处理器，8GB DDR4内存，NVIDIA GTX 1060 6GB显卡",
+    "Inter i5-9400F 处理器，16GB DDR4内存，NVIDIA GTX 1060 6GB显卡",
+    "Inter i7-7700  处理器，16GB DDR4 内存，NVIDIA GeForce RTX 2070显卡",
+    "Inter i7-8700 处理器，32GB DDR4 内存，NVIDIA GeForce RTX 3070显卡"
+  ],
+  "number": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "vipPrice": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "noVipPrice": [
+    0,
+    0,
+    0,
+    0
+  ]
+}

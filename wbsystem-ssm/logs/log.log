@@ -1,0 +1,580 @@
+2023-02-16 10:29:35.237  INFO 8500 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 8500 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 10:29:35.240  INFO 8500 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 10:29:35.429  INFO 8500 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 10:29:35.430  INFO 8500 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 10:29:38.916  INFO 8500 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 10:29:38.988  INFO 8500 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 10:29:38.988  INFO 8500 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 10:29:39.418  INFO 8500 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 10:29:39.423  INFO 8500 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 10:29:39.423  INFO 8500 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3991 ms
+2023-02-16 10:29:39.695  INFO 8500 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 10:29:39.924  INFO 8500 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 10:29:40.295  INFO 8500 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 10:29:40
+2023-02-16 10:29:40.321 ERROR 8500 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:29:40.516  INFO 8500 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 10:29:41.053  INFO 8500 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 10:29:41.148  INFO 8500 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 10:29:41.151  INFO 8500 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 6.891 seconds (JVM running for 8.474)
+2023-02-16 10:30:03.200  INFO 8500 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 10:30:03.200  INFO 8500 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 10:30:03.207  INFO 8500 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2023-02-16 10:30:04.701 ERROR 8500 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.wbsystem_ssm.dao.EquipDao.selectList] with root cause
+
+org.apache.ibatis.binding.BindingException: Invalid bound statement (not found): com.example.wbsystem_ssm.dao.EquipDao.selectList
+	at org.apache.ibatis.binding.MapperMethod$SqlCommand.<init>(MapperMethod.java:227) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperMethod.<init>(MapperMethod.java:49) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperProxy.cachedMapperMethod(MapperProxy.java:65) ~[mybatis-3.4.6.jar:3.4.6]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:58) ~[mybatis-3.4.6.jar:3.4.6]
+	at com.sun.proxy.$Proxy79.selectList(Unknown Source) ~[na:na]
+	at com.baomidou.mybatisplus.service.impl.ServiceImpl.selectList(ServiceImpl.java:394) ~[mybatis-plus-support-2.3.jar:na]
+	at com.baomidou.mybatisplus.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$3e2398a4.invoke(<generated>) ~[mybatis-plus-support-2.3.jar:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684) ~[spring-aop-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at com.example.wbsystem_ssm.service.impl.EquipServiceImpl$$EnhancerBySpringCGLIB$$c28c0cde.selectList(<generated>) ~[classes/:na]
+	at com.example.wbsystem_ssm.controller.EquipController.useDetails(EquipController.java:66) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:118) ~[spring-web-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) ~[tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_45]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_45]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.22.jar:9.0.22]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_45]
+
+2023-02-16 10:30:40.297 ERROR 8500 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:31:40.295 ERROR 8500 --- [pool-1-thread-2] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:32:40.297 ERROR 8500 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:33:40.295 ERROR 8500 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:34:40.295 ERROR 8500 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:35:40.296 ERROR 8500 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:36:40.296 ERROR 8500 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:37:29.939  INFO 16036 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 16036 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 10:37:30.002  INFO 16036 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 10:37:30.098  INFO 16036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 10:37:30.098  INFO 16036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 10:37:32.287  INFO 16036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 10:37:32.308  INFO 16036 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 10:37:32.308  INFO 16036 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 10:37:32.609  INFO 16036 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 10:37:32.614  INFO 16036 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 10:37:32.615  INFO 16036 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2516 ms
+2023-02-16 10:37:32.723  INFO 16036 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 10:37:32.973  INFO 16036 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 10:37:33.352  INFO 16036 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 10:37:33
+2023-02-16 10:37:33.371 ERROR 16036 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:37:33.534  INFO 16036 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 10:37:33.895  INFO 16036 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 10:37:33.969  INFO 16036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 10:37:33.972  INFO 16036 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 5.014 seconds (JVM running for 6.741)
+2023-02-16 10:38:33.353 ERROR 16036 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:38:49.399  INFO 16036 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 10:38:49.401  INFO 16036 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 10:38:49.411  INFO 16036 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2023-02-16 10:39:33.353 ERROR 16036 --- [pool-1-thread-2] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:40:33.353 ERROR 16036 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:41:33.353 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:42:33.354 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:43:33.353 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:44:33.352 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:45:33.353 ERROR 16036 --- [pool-1-thread-5] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:46:33.353 ERROR 16036 --- [pool-1-thread-5] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:47:33.353 ERROR 16036 --- [pool-1-thread-5] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:48:33.352 ERROR 16036 --- [pool-1-thread-5] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:49:33.354 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:50:33.353 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:51:33.352 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:52:33.353 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:53:33.354 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:54:33.353 ERROR 16036 --- [pool-1-thread-3] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 10:56:09.263 DEBUG 16836 --- [background-preinit] .h.v.m.ResourceBundleMessageInterpolator : Loaded expression factory via original TCCL
+2023-02-16 10:56:09.503  INFO 16836 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 16836 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 10:56:09.505  INFO 16836 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 10:56:09.603  INFO 16836 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 10:56:09.603  INFO 16836 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 10:56:11.083  INFO 16836 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 10:56:11.110  INFO 16836 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 10:56:11.110  INFO 16836 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 10:56:11.373  INFO 16836 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 10:56:11.377  INFO 16836 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 10:56:11.377  INFO 16836 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1774 ms
+2023-02-16 10:56:11.600  INFO 16836 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 10:56:11.808  INFO 16836 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 10:56:11.824  WARN 16836 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardController': Unsatisfied dependency expressed through field 'cardService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardDao' defined in file [C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes\com\example\wbsystem_ssm\dao\CardDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+2023-02-16 10:56:11.825  INFO 16836 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2023-02-16 10:56:11.827  INFO 16836 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-02-16 10:56:11.865 ERROR 16836 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardController': Unsatisfied dependency expressed through field 'cardService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardDao' defined in file [C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes\com\example\wbsystem_ssm\dao\CardDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$123/1518528304.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:845) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:743) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:390) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1214) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1203) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at com.example.wbsystem_ssm.WbSystemApplication.main(WbSystemApplication.java:15) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardDao' defined in file [C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes\com\example\wbsystem_ssm\dao\CardDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$123/1518528304.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardDao' defined in file [C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes\com\example\wbsystem_ssm\dao\CardDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$123/1518528304.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 39 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$123/1518528304.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1500) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 51 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 65 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.<clinit>(MybatisSqlSessionFactoryBean.java:97) ~[mybatis-plus-extension-3.1.2.jar:3.1.2]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration.sqlSessionFactory(MybatisPlusAutoConfiguration.java:142) ~[mybatis-plus-boot-starter-3.1.2.jar:3.1.2]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$f19fdf77.CGLIB$sqlSessionFactory$2(<generated>) ~[mybatis-plus-boot-starter-3.1.2.jar:3.1.2]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$f19fdf77$$FastClassBySpringCGLIB$$4433d73e.invoke(<generated>) ~[mybatis-plus-boot-starter-3.1.2.jar:3.1.2]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$f19fdf77.sqlSessionFactory(<generated>) ~[mybatis-plus-boot-starter-3.1.2.jar:3.1.2]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 66 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.mybatis.logging.LoggerFactory
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_45]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_45]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_45]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_45]
+	... 78 common frames omitted
+
+2023-02-16 11:02:16.059  INFO 15688 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 15688 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:02:16.063  INFO 15688 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:02:16.113  INFO 15688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:02:16.114  INFO 15688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:02:17.906  INFO 15688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:02:17.945  INFO 15688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:02:17.945  INFO 15688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:02:18.335  INFO 15688 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:02:18.342  INFO 15688 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:02:18.342  INFO 15688 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2228 ms
+2023-02-16 11:02:18.653  INFO 15688 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:02:18.888  INFO 15688 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:02:18.903  WARN 15688 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardController': Unsatisfied dependency expressed through field 'cardService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardDao' defined in file [C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes\com\example\wbsystem_ssm\dao\CardDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+2023-02-16 11:02:18.904  INFO 15688 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2023-02-16 11:02:18.907  INFO 15688 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-02-16 11:02:18.931 ERROR 15688 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardController': Unsatisfied dependency expressed through field 'cardService'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardDao' defined in file [C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes\com\example\wbsystem_ssm\dao\CardDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$147/593603032.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:845) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141) ~[spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:743) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:390) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1214) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1203) [spring-boot-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+	at com.example.wbsystem_ssm.WbSystemApplication.main(WbSystemApplication.java:15) [classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) [spring-boot-devtools-2.1.7.RELEASE.jar:2.1.7.RELEASE]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardServiceImpl': Unsatisfied dependency expressed through field 'baseMapper'; nested exception is org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardDao' defined in file [C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes\com\example\wbsystem_ssm\dao\CardDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$147/593603032.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cardDao' defined in file [C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes\com\example\wbsystem_ssm\dao\CardDao.class]: Unsatisfied dependency expressed through bean property 'sqlSessionFactory'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$147/593603032.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 39 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$147/593603032.getObject(Unknown Source) ~[na:na]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1500) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 51 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 65 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/mybatis/logging/LoggerFactory
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.<clinit>(MybatisSqlSessionFactoryBean.java:97) ~[mybatis-plus-extension-3.1.2.jar:3.1.2]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration.sqlSessionFactory(MybatisPlusAutoConfiguration.java:142) ~[mybatis-plus-boot-starter-3.1.2.jar:3.1.2]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$a5feead7.CGLIB$sqlSessionFactory$2(<generated>) ~[mybatis-plus-boot-starter-3.1.2.jar:3.1.2]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$a5feead7$$FastClassBySpringCGLIB$$5d234766.invoke(<generated>) ~[mybatis-plus-boot-starter-3.1.2.jar:3.1.2]
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244) ~[spring-core-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363) ~[spring-context-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration$$EnhancerBySpringCGLIB$$a5feead7.sqlSessionFactory(<generated>) ~[mybatis-plus-boot-starter-3.1.2.jar:3.1.2]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.1.9.RELEASE.jar:5.1.9.RELEASE]
+	... 66 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.mybatis.logging.LoggerFactory
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:381) ~[na:1.8.0_45]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424) ~[na:1.8.0_45]
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331) ~[na:1.8.0_45]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357) ~[na:1.8.0_45]
+	... 78 common frames omitted
+
+2023-02-16 11:14:17.904  INFO 2468 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 2468 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:14:17.941  INFO 2468 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:14:18.030  INFO 2468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:14:18.030  INFO 2468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:14:20.937  INFO 2468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:14:20.967  INFO 2468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:14:20.968  INFO 2468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:14:21.457  INFO 2468 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:14:21.462  INFO 2468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:14:21.462  INFO 2468 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 3432 ms
+2023-02-16 11:14:21.856  INFO 2468 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:14:22.138  INFO 2468 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:14:22.966  WARN 2468 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.Refund.
+2023-02-16 11:14:23.109  WARN 2468 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.TopUp.
+2023-02-16 11:14:23.153  INFO 2468 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:14:23
+2023-02-16 11:14:23.336  INFO 2468 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:14:23.355 ERROR 2468 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:14:23.613  INFO 2468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:14:23.688  INFO 2468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:14:23.691  INFO 2468 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 6.58 seconds (JVM running for 8.755)
+2023-02-16 11:14:46.029  INFO 2468 --- [http-nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 11:14:46.029  INFO 2468 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 11:14:46.042  INFO 2468 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2023-02-16 11:15:23.189 ERROR 2468 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:16:23.188 ERROR 2468 --- [pool-1-thread-2] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:17:08.521  INFO 15888 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 15888 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:17:08.586  INFO 15888 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:17:08.687  INFO 15888 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:17:08.690  INFO 15888 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:17:10.403  INFO 15888 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:17:10.425  INFO 15888 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:17:10.425  INFO 15888 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:17:10.807  INFO 15888 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:17:10.812  INFO 15888 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:17:10.812  INFO 15888 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2122 ms
+2023-02-16 11:17:10.978  INFO 15888 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:17:11.225  INFO 15888 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:17:11.840  WARN 15888 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.Refund.
+2023-02-16 11:17:12.038  WARN 15888 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.TopUp.
+2023-02-16 11:17:12.078  INFO 15888 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:17:12
+2023-02-16 11:17:12.238  INFO 15888 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:17:12.261 ERROR 15888 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:17:12.527  INFO 15888 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:17:12.612  INFO 15888 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:17:12.615  INFO 15888 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 4.78 seconds (JVM running for 6.386)
+2023-02-16 11:17:39.019  INFO 15888 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 11:17:39.019  INFO 15888 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 11:17:39.033  INFO 15888 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2023-02-16 11:18:12.111 ERROR 15888 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:19:27.835  INFO 4648 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 4648 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:19:27.840  INFO 4648 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:19:27.975  INFO 4648 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:19:27.975  INFO 4648 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:19:29.687  INFO 4648 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:19:29.712  INFO 4648 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:19:29.713  INFO 4648 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:19:30.017  INFO 4648 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:19:30.023  INFO 4648 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:19:30.023  INFO 4648 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2048 ms
+2023-02-16 11:19:30.208  INFO 4648 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:19:30.441  INFO 4648 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:19:31.035  WARN 4648 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.Refund.
+2023-02-16 11:19:31.205  WARN 4648 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.TopUp.
+2023-02-16 11:19:31.257  INFO 4648 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:19:31
+2023-02-16 11:19:31.592 ERROR 4648 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:19:31.667  INFO 4648 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:19:31.961  INFO 4648 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:19:32.058  INFO 4648 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:19:32.061  INFO 4648 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 5.087 seconds (JVM running for 6.842)
+2023-02-16 11:19:38.628  INFO 4648 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 11:19:38.628  INFO 4648 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 11:19:38.635  INFO 4648 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2023-02-16 11:20:31.289 ERROR 4648 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:21:31.292 ERROR 4648 --- [pool-1-thread-2] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:21:37.908  INFO 17000 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 17000 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:21:37.910  INFO 17000 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:21:37.959  INFO 17000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:21:37.960  INFO 17000 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:21:39.230  INFO 17000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:21:39.252  INFO 17000 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:21:39.252  INFO 17000 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:21:39.513  INFO 17000 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:21:39.517  INFO 17000 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:21:39.517  INFO 17000 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1557 ms
+2023-02-16 11:21:39.709  INFO 17000 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:21:39.946  INFO 17000 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:21:40.568  WARN 17000 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.Refund.
+2023-02-16 11:21:40.710  WARN 17000 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.TopUp.
+2023-02-16 11:21:40.746  INFO 17000 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:21:40
+2023-02-16 11:21:40.900  INFO 17000 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:21:40.930 ERROR 17000 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:21:41.160  INFO 17000 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:21:41.224  INFO 17000 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:21:41.227  INFO 17000 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 4.001 seconds (JVM running for 5.509)
+2023-02-16 11:22:09.217  INFO 17000 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 11:22:09.217  INFO 17000 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 11:22:09.228  INFO 17000 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2023-02-16 11:22:40.785 ERROR 17000 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:23:40.784 ERROR 17000 --- [pool-1-thread-2] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:24:40.928 ERROR 17000 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:25:50.777  INFO 9688 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 9688 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:25:50.781  INFO 9688 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:25:50.925  INFO 9688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:25:50.925  INFO 9688 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:25:52.674  INFO 9688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:25:52.695  INFO 9688 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:25:52.695  INFO 9688 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:25:52.959  INFO 9688 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:25:52.963  INFO 9688 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:25:52.964  INFO 9688 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2038 ms
+2023-02-16 11:25:53.120  INFO 9688 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:25:53.328  INFO 9688 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:25:53.942  WARN 9688 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.Refund.
+2023-02-16 11:25:54.111  WARN 9688 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.TopUp.
+2023-02-16 11:25:54.152  INFO 9688 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:25:54
+2023-02-16 11:25:54.323  INFO 9688 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:25:54.341 ERROR 9688 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:25:54.591  INFO 9688 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:25:54.654  INFO 9688 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:25:54.657  INFO 9688 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 4.719 seconds (JVM running for 6.406)
+2023-02-16 11:26:05.709  INFO 9688 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 11:26:05.710  INFO 9688 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 11:26:05.718  INFO 9688 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2023-02-16 11:26:54.190 ERROR 9688 --- [pool-1-thread-1] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:27:54.191 ERROR 9688 --- [pool-1-thread-2] c.e.wbsystem_ssm.executor.MineExecutors  : 定时任务执行出错
+2023-02-16 11:28:44.744  INFO 10224 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 10224 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:28:44.747  INFO 10224 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:28:44.809  INFO 10224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:28:44.810  INFO 10224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:28:46.357  INFO 10224 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:28:46.387  INFO 10224 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:28:46.388  INFO 10224 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:28:46.701  INFO 10224 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:28:46.706  INFO 10224 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:28:46.707  INFO 10224 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1897 ms
+2023-02-16 11:28:46.858  INFO 10224 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:28:46.959  INFO 10224 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:28:47.661  WARN 10224 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.Refund.
+2023-02-16 11:28:47.808  WARN 10224 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.TopUp.
+2023-02-16 11:28:47.843  INFO 10224 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:28:47
+2023-02-16 11:28:48.027  INFO 10224 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:28:48.302  INFO 10224 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:28:48.361  INFO 10224 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:28:48.364  INFO 10224 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 4.283 seconds (JVM running for 6.987)
+2023-02-16 11:29:13.500  INFO 10224 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 11:29:13.501  INFO 10224 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 11:29:13.515  INFO 10224 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2023-02-16 11:30:24.223  INFO 10112 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 10112 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:30:24.237  INFO 10112 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:30:24.310  INFO 10112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:30:24.311  INFO 10112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:30:26.721  INFO 10112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:30:26.749  INFO 10112 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:30:26.749  INFO 10112 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:30:27.063  INFO 10112 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:30:27.069  INFO 10112 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:30:27.069  INFO 10112 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2758 ms
+2023-02-16 11:30:27.262  INFO 10112 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:30:27.373  INFO 10112 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:30:28.199  WARN 10112 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.Refund.
+2023-02-16 11:30:28.342  WARN 10112 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.TopUp.
+2023-02-16 11:30:28.383  INFO 10112 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:30:28
+2023-02-16 11:30:28.602  INFO 10112 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:30:28.873  INFO 10112 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:30:28.945  INFO 10112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:30:28.948  INFO 10112 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 5.455 seconds (JVM running for 7.062)
+2023-02-16 11:33:42.804  INFO 9752 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 9752 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:33:42.809  INFO 9752 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:33:42.893  INFO 9752 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:33:42.893  INFO 9752 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:33:45.192  INFO 9752 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:33:45.238  INFO 9752 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:33:45.238  INFO 9752 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:33:45.630  INFO 9752 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:33:45.634  INFO 9752 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:33:45.634  INFO 9752 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 2741 ms
+2023-02-16 11:33:45.817  INFO 9752 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:33:45.935  INFO 9752 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:33:46.718  WARN 9752 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.Refund.
+2023-02-16 11:33:46.899  WARN 9752 --- [restartedMain] c.b.m.core.metadata.TableInfoHelper      : Warn: Could not find @TableId in Class: com.example.wbsystem_ssm.entity.TopUp.
+2023-02-16 11:33:46.940  INFO 9752 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:33:46
+2023-02-16 11:33:47.124  INFO 9752 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:33:47.450  INFO 9752 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:33:47.521  INFO 9752 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:33:47.524  INFO 9752 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 5.47 seconds (JVM running for 7.403)
+2023-02-16 11:33:57.566  INFO 9752 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-16 11:33:57.566  INFO 9752 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-02-16 11:33:57.576  INFO 9752 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2023-02-16 11:36:58.790  INFO 16732 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Starting WbSystemApplication on DESKTOP-777582L with PID 16732 (C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm\target\classes started by Administrator in C:\Users\Administrator\Desktop\wbsystem-master\wbsystem-ssm)
+2023-02-16 11:36:58.794  INFO 16732 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : No active profile set, falling back to default profiles: default
+2023-02-16 11:36:58.860  INFO 16732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-02-16 11:36:58.860  INFO 16732 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-02-16 11:37:00.323  INFO 16732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-02-16 11:37:00.349  INFO 16732 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-02-16 11:37:00.349  INFO 16732 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.22]
+2023-02-16 11:37:00.652  INFO 16732 --- [restartedMain] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2023-02-16 11:37:00.658  INFO 16732 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-02-16 11:37:00.658  INFO 16732 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1798 ms
+2023-02-16 11:37:00.831  INFO 16732 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure : Init DruidDataSource
+2023-02-16 11:37:00.920  INFO 16732 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2023-02-16 11:37:01.779  INFO 16732 --- [restartedMain] c.e.wbsystem_ssm.executor.MineExecutors  : 初始化成功 2023-02-16 11:37:01
+2023-02-16 11:37:01.942  INFO 16732 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2023-02-16 11:37:02.219  INFO 16732 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-02-16 11:37:02.281  INFO 16732 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-02-16 11:37:02.285  INFO 16732 --- [restartedMain] c.e.wbsystem_ssm.WbSystemApplication     : Started WbSystemApplication in 4.15 seconds (JVM running for 6.0)

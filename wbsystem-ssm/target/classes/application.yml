@@ -1,0 +1,59 @@
+server:
+  port: 8080
+  forward-headers-strategy: true
+  servlet:
+    session:
+      timeout: 86400
+spring:
+  transaction:
+    rollback-on-commit-failure: true
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #MySql配置
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://124.223.182.14:3306/test?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: xjl011025
+  thymeleaf:
+    prefix: /Jeff/page/
+    encoding: UTF-8
+    cache: false
+    suffix: .html
+    servlet:
+      content-type: text/html
+  redis:
+    host: 124.223.182.14
+    port: 6399
+    database: 0
+    password: xjl2550908862xjl011025.
+    jedis:
+      pool:
+        max-idle: 6    #最大空闲数
+        max-active: 10 #最大连接数
+        min-idle: 2    #最小空闲数
+    timeout: 2000   #连接超时
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 20MB
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.example.wbsystem_ssm.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 0
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 0
+  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+logging:
+  level:
+    com:
+      example:
+        wbsystem_ssm:
+          dao: debug
+
+
