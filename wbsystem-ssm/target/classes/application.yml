@@ -15,7 +15,7 @@ spring:
     username: root
     password: xjl011025
   thymeleaf:
-    prefix: /Jeff/page/
+    prefix:
     encoding: UTF-8
     cache: false
     suffix: .html

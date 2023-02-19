@@ -9,6 +9,7 @@ public class JedisUtil {
         jedis.auth("xjl2550908862xjl011025.");
         return jedis;
     }
+
     public static void close(){
         jedis.close();
     }

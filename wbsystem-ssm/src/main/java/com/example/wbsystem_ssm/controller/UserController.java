@@ -1,17 +1,17 @@
 package com.example.wbsystem_ssm.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.example.wbsystem_ssm.entity.Card;
-import com.example.wbsystem_ssm.entity.CardDto;
-import com.example.wbsystem_ssm.entity.ResultBean;
-import com.example.wbsystem_ssm.entity.User;
+import com.example.wbsystem_ssm.entity.*;
 import com.example.wbsystem_ssm.service.UserService;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +22,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class UserController {
     @Autowired
     private UserService userService;
@@ -29,8 +30,27 @@ public class UserController {
     @GetMapping("/user/getUserBySession")
     public User getUserBySession(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
+        Object principal = null;
+        User user = null;
+        JSONObject jsonObjects = null;
+        try{
+            String s = (String) session.getAttribute("user");
+            user = JSON.parseObject((String) session.getAttribute("user"),User.class);
+            System.out.println(user);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return user;
+        }
+    }
+    @GetMapping("/user/setSession")
+    public User setSession(HttpServletRequest request, HttpServletResponse response) {
+        HttpSession session = request.getSession();
         User user = null;
         try{
+
+            session.setAttribute("user",new User());
+            System.out.println(session.getAttribute("user"));
             user = JSON.parseObject((String)session.getAttribute("user"),User.class);
         }catch (Exception e){
             e.printStackTrace();
@@ -38,7 +58,6 @@ public class UserController {
             return user;
         }
     }
-
     @GetMapping("/userList")
     public IPage<User> userList(HttpServletRequest request, HttpServletResponse response) {
         String idCard = request.getParameter("idCard2");
@@ -142,4 +161,5 @@ public class UserController {
             return resultBean;
         }
     }
+
 }

@@ -37,9 +37,9 @@ public class UserDetailsServiceImpl implements UserDetailsService
             log.info("登录用户：{} 不存在.", username);
             throw new ServiceException("登录用户：" + username + " 不存在");
         }
-        return new UserInfo(username,new BCryptPasswordEncoder().encode(user.getPwd() ), new HashSet<>());
-
-
-
+        UserInfo userInfo = new UserInfo(username, new BCryptPasswordEncoder().encode(user.getPwd()), new HashSet<>());
+        userInfo.setType(user.getType());
+        System.out.println(user);
+        return userInfo;
     }
 }

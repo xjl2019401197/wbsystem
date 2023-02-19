@@ -1,6 +1,8 @@
 package com.example.wbsystem_ssm.security;
 
 
+import com.example.wbsystem_ssm.redis.JedisUtil;
+import org.apache.catalina.authenticator.SavedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -10,9 +12,19 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.web.filter.CorsFilter;
+import redis.clients.jedis.Jedis;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * spring security配置
@@ -27,6 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     /**
      * 自定义用户认证逻辑
      */
+    @Qualifier("userDetailsServiceImpl")
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -81,28 +94,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         //自定义403页面
 //        http.exceptionHandling().accessDeniedPage("/unauth");
 //        http.authorizeRequests().anyRequest().permitAll();
-        //自定义退出页面
-        if (jedis.get("admin") != null || jedis.get("teacher") != null || jedis.get("student") != null) {
-            System.out.println(jedis.get("admin"));
-            System.out.println(jedis.get("teacher"));
-            System.out.println(jedis.get("student"));
-            httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
-        }
+        // 开启 Session 会话管理配置
+//        httpSecurity.authorizeRequests().anyRequest().permitAll();
+//        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
+//        Jedis jedis = JedisUtil.getJedisCon();
+//        if (jedis.get("user") != null ) {
+//            httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
+//        }
         httpSecurity.logout().logoutUrl("/logout").logoutSuccessUrl("/test/hello").permitAll();
         httpSecurity.formLogin()        //自定义登录页面
-                .loginPage("/login")                //登录页面
-                .loginProcessingUrl("/tologin")      //登录访问路径
+                .loginPage("/login.jsp")                //登录页面
+                .loginProcessingUrl("/userLogin")      //登录访问路径
                 .permitAll()       //登录成功后，跳转的路径
                 .and().authorizeRequests()
-                .antMatchers("/login", "/register", "/tologin/**", "/toregister","doc.html").permitAll()      //设置不需要认证路径
+                .antMatchers("/login*", "/register*","/userLogin","/user/getUserBySession","/index.html","/doc.html").permitAll()      //设置不需要认证路径
                 .antMatchers("/static/**").permitAll()      //设置不需要认证路径
                 .antMatchers("/webjars/**").permitAll()      //设置不需要认证路径
                 .antMatchers("/testPort").permitAll()      //设置不需要认证路径
-                .anyRequest().authenticated()           //全部需要认证
-                .and().csrf().disable();                 //csrf防护关闭
+                .anyRequest().authenticated()  ;         //全部需要认证
         httpSecurity.headers().frameOptions().disable();
+
+        //csrf防护关闭
+//        httpSecurity.headers().frameOptions().disable();
         // 添加Logout filter
-        httpSecurity.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler);
+//        httpSecurity.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler);
+        // 添加JWT filter
+//        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+        // 添加CORS filter
+//        httpSecurity.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
 
     }
 
@@ -114,6 +133,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     {
         return new BCryptPasswordEncoder();
     }
+
 
     /**
      * 身份认证接口

@@ -14,8 +14,18 @@ public class UserInfo extends User {
 
     private String username;
 
+    private Integer type;
+
     public UserInfo(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
     }
 
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
 }
