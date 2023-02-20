@@ -97,10 +97,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         // 开启 Session 会话管理配置
 //        httpSecurity.authorizeRequests().anyRequest().permitAll();
 //        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
-//        Jedis jedis = JedisUtil.getJedisCon();
-//        if (jedis.get("user") != null ) {
-//            httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
-//        }
+        Jedis jedis = JedisUtil.getJedisCon();
+        if (jedis.get("user") != null ) {
+            httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
+        }
         httpSecurity.logout().logoutUrl("/logout").logoutSuccessUrl("/test/hello").permitAll();
         httpSecurity.formLogin()        //自定义登录页面
                 .loginPage("/login.jsp")                //登录页面
