@@ -27,6 +27,7 @@ public class ResourceConfig implements WebMvcConfigurer {
         registry.addResourceHandler("/v2/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
+
     /**
      * 跨域配置
      */
