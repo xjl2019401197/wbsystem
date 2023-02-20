@@ -10,6 +10,7 @@ import com.example.wbsystem_ssm.entity.*;
 import com.example.wbsystem_ssm.service.UserService;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,9 @@ public class UserController {
         Object principal = null;
         User user = null;
         JSONObject jsonObjects = null;
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        System.out.println("authenticationSession:"+authentication);
         try{
             String s = (String) session.getAttribute("user");
             user = JSON.parseObject((String) session.getAttribute("user"),User.class);

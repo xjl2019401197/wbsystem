@@ -50,7 +50,7 @@ public class UserLoginController {
                 throw new Exception("用户不存在");
             }
             authentication = SecurityContextHolder.getContext().getAuthentication();
-            System.out.println("authentication:"+authentication);
+            System.out.println("authentication1:"+authentication);
             User user = userService.getOne(new QueryWrapper<User>().eq("id_card", idCard));
             HttpSession session = request.getSession();
             session.setAttribute("user", JSON.toJSONString(user));

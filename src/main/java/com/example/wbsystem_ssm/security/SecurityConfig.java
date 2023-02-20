@@ -1,6 +1,7 @@
 package com.example.wbsystem_ssm.security;
 
 
+import com.example.wbsystem_ssm.handle.JwtAuthenticationTokenFilter;
 import com.example.wbsystem_ssm.redis.JedisUtil;
 import org.apache.catalina.authenticator.SavedRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -57,6 +59,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     @Autowired
     private CorsFilter corsFilter;
 
+    /**
+     * token认证过滤器
+     */
+    @Autowired
+    private JwtAuthenticationTokenFilter authenticationTokenFilter;
+
 
     /**
      * 解决 无法直接注入 AuthenticationManager
@@ -97,22 +105,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         // 开启 Session 会话管理配置
 //        httpSecurity.authorizeRequests().anyRequest().permitAll();
 //        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
-        Jedis jedis = JedisUtil.getJedisCon();
-        if (jedis.get("user") != null ) {
-            httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
-        }
+//        Jedis jedis = JedisUtil.getJedisCon();
+//        if (jedis.get("user") != null ) {
+//            System.out.println(jedis.get("user"));
+//            httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
+//        }
         httpSecurity.logout().logoutUrl("/logout").logoutSuccessUrl("/test/hello").permitAll();
         httpSecurity.formLogin()        //自定义登录页面
                 .loginPage("/login.jsp")                //登录页面
                 .loginProcessingUrl("/userLogin")      //登录访问路径
+//                .defaultSuccessUrl("/index.html").permitAll() // 登录成功之后，跳转的路径。
                 .permitAll()       //登录成功后，跳转的路径
                 .and().authorizeRequests()
-                .antMatchers("/login*", "/register*","/userLogin","/user/getUserBySession","/index.html","/doc.html").permitAll()      //设置不需要认证路径
+                .antMatchers("/login*", "/register*","/userLogin","/user/getUserBySession","/doc.html").permitAll()      //设置不需要认证路径
                 .antMatchers("/static/**").permitAll()      //设置不需要认证路径
                 .antMatchers("/webjars/**").permitAll()      //设置不需要认证路径
                 .antMatchers("/testPort").permitAll()      //设置不需要认证路径
                 .anyRequest().authenticated()  ;         //全部需要认证
         httpSecurity.headers().frameOptions().disable();
+        // 添加JWT filter
+        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         //csrf防护关闭
 //        httpSecurity.headers().frameOptions().disable();
@@ -121,7 +133,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         // 添加JWT filter
 //        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
         // 添加CORS filter
-//        httpSecurity.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
+        httpSecurity.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
 
     }
 

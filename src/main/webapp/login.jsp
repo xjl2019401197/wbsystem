@@ -123,7 +123,7 @@
                             }
                         });
                         if (type == 0) location.href = "manager.html"
-                        else if (type == 1) location.href = "index.html"
+                        else if (type == 1) window.location = "index.html"
                         else location.href = "index.jsp";
 
 
