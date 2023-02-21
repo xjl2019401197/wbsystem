@@ -41,14 +41,14 @@
         <!--            </div>-->
         <h3>欢迎登陆 网吧会员管理系统</h3>
 
-        <form class="m-t" role="form" action="##">
+        <form class="m-t" role="form" action="/user/login" method="post">
             <div class="form-group">
-                <input type="text" id="account" class="form-control" placeholder="账号" required="">
+                <input type="text" name="username" id="account" class="form-control" placeholder="账号" required="">
             </div>
             <div class="form-group">
-                <input type="password" id="password" class="form-control" placeholder="密码" required="">
+                <input type="password" name="password" id="password" class="form-control" placeholder="密码" required="">
             </div>
-            <button id="btnLogin" type="button" class="btn btn-primary block full-width m-b">登 录</button>
+            <button id="btnLogin" type="submit" class="btn btn-primary block full-width m-b">登 录</button>
 
 
             <p class="text-muted text-center">
@@ -67,77 +67,77 @@
 
 <script src="./static/js/layui/layui.all.js"></script>
 
-<script>
-    window.onkeypress = function () {
-        if (event.keyCode == 13) {
-            $("#btnLogin").click();
-        }
-    };
+<%--<script>--%>
+<%--    window.onkeypress = function () {--%>
+<%--        if (event.keyCode == 13) {--%>
+<%--            $("#btnLogin").click();--%>
+<%--        }--%>
+<%--    };--%>
 
-    layui.use(['layer', 'form'], function () {
-        var layer = layui.layer
-            , form = layui.form;
-    });
+<%--    layui.use(['layer', 'form'], function () {--%>
+<%--        var layer = layui.layer--%>
+<%--            , form = layui.form;--%>
+<%--    });--%>
 
-    var flag = false;
+<%--    var flag = false;--%>
 
-    $('#btnLogin').click(function () {
-        //账号
-        var account = $('#account').val().trim();
-        var pwd = $('#password').val().trim();
+<%--    $('#btnLogin').click(function () {--%>
+<%--        //账号--%>
+<%--        var account = $('#account').val().trim();--%>
+<%--        var pwd = $('#password').val().trim();--%>
 
-        if (account.length < 1) {
-            layer.msg('用户名不能为空!');
-            return;
-        }
-        if (password.length < 1) {
-            layer.msg('密码不能为空!');
-            return;
-        }
-        $.ajax({
-            url: "userLogin?account=" + account + "&pwd=" + pwd,
-            type: "get",
-            success: function (data) {
-                if (data.data === "0") {
-                    layer.msg('账户不存在', {
-                        icon: 5,
-                        time: 1000 //1秒关闭（如果不配置，默认是3秒）
-                    });
-                } else if (data.data === "1") {
-                    layer.msg('密码错误', {
-                        icon: 5,
-                        time: 1000 //1秒关闭（如果不配置，默认是3秒）
-                    });
-                } else if (data.data === "2") {
-                    layer.msg('登陆成功', {
-                        icon: 6,
-                        time: 1000 //1秒关闭（如果不配置，默认是3秒）
-                    }, function () {
-                        var type = null;
-                        $.ajax({
-                            url: "user/getUserBySession",
-                            type: "get",
-                            async: false,
-                            success: function (data) {
-                                type = data['userType']
-                            }
-                        });
-                        if (type == 0) location.href = "manager.html"
-                        else if (type == 1) window.location = "index.html"
-                        else location.href = "index.jsp";
+<%--        if (account.length < 1) {--%>
+<%--            layer.msg('用户名不能为空!');--%>
+<%--            return;--%>
+<%--        }--%>
+<%--        if (password.length < 1) {--%>
+<%--            layer.msg('密码不能为空!');--%>
+<%--            return;--%>
+<%--        }--%>
+<%--        $.ajax({--%>
+<%--            url: "userLogin?account=" + account + "&pwd=" + pwd,--%>
+<%--            type: "get",--%>
+<%--            success: function (data) {--%>
+<%--                if (data.data === "0") {--%>
+<%--                    layer.msg('账户不存在', {--%>
+<%--                        icon: 5,--%>
+<%--                        time: 1000 //1秒关闭（如果不配置，默认是3秒）--%>
+<%--                    });--%>
+<%--                } else if (data.data === "1") {--%>
+<%--                    layer.msg('密码错误', {--%>
+<%--                        icon: 5,--%>
+<%--                        time: 1000 //1秒关闭（如果不配置，默认是3秒）--%>
+<%--                    });--%>
+<%--                } else if (data.data === "2") {--%>
+<%--                    layer.msg('登陆成功', {--%>
+<%--                        icon: 6,--%>
+<%--                        time: 1000 //1秒关闭（如果不配置，默认是3秒）--%>
+<%--                    }, function () {--%>
+<%--                        // var type = null;--%>
+<%--                        // $.ajax({--%>
+<%--                        //     url: "user/getUserBySession",--%>
+<%--                        //     type: "get",--%>
+<%--                        //     async: false,--%>
+<%--                        //     success: function (data) {--%>
+<%--                        //         type = data['userType']--%>
+<%--                        //     }--%>
+<%--                        // });--%>
+<%--                        // if (type == 0) location.href = "manager.html"--%>
+<%--                        // else if (type == 1) location.href = "index.html"--%>
+<%--                        // else location.href = "index.jsp";--%>
 
 
-                    });
-                } else {
-                    layer.msg('系统出错', {
-                        icon: 5,
-                        time: 1000 //1秒关闭（如果不配置，默认是3秒）
-                    });
-                }
-            }
-        });
-    });
-</script>
+<%--                    });--%>
+<%--                } else {--%>
+<%--                    layer.msg('系统出错', {--%>
+<%--                        icon: 5,--%>
+<%--                        time: 1000 //1秒关闭（如果不配置，默认是3秒）--%>
+<%--                    });--%>
+<%--                }--%>
+<%--            }--%>
+<%--        });--%>
+<%--    });--%>
+<%--</script>--%>
 </body>
 
 </html>

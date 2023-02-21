@@ -2,6 +2,7 @@ package com.example.wbsystem_ssm.security;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
 
 import javax.servlet.ServletException;
@@ -27,6 +28,7 @@ public class LogoutSuccessHandlerImpl implements LogoutSuccessHandler
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
             throws IOException, ServletException
     {
+        SecurityContextHolder.clearContext();
         request.getSession().invalidate();
 
     }

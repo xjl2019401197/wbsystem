@@ -36,8 +36,7 @@ import java.io.IOException;
 @Configuration
 //开启注解securedEnabled、prePostEnabled
 @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter
-{
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 自定义用户认证逻辑
      */
@@ -74,8 +73,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
      */
     @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception
-    {
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
@@ -95,14 +93,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
      * authenticated       |   用户登录后可访问
      */
     @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception
-    {
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
         System.out.println("页面请求");
 
         //自定义403页面
 //        http.exceptionHandling().accessDeniedPage("/unauth");
 //        http.authorizeRequests().anyRequest().permitAll();
-        // 开启 Session 会话管理配置
+//         开启 Session 会话管理配置
 //        httpSecurity.authorizeRequests().anyRequest().permitAll();
 //        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
 //        Jedis jedis = JedisUtil.getJedisCon();
@@ -110,21 +107,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 //            System.out.println(jedis.get("user"));
 //            httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
 //        }
-        httpSecurity.logout().logoutUrl("/logout").logoutSuccessUrl("/test/hello").permitAll();
-        httpSecurity.formLogin()        //自定义登录页面
-                .loginPage("/login.jsp")                //登录页面
-                .loginProcessingUrl("/userLogin")      //登录访问路径
-//                .defaultSuccessUrl("/index.html").permitAll() // 登录成功之后，跳转的路径。
-                .permitAll()       //登录成功后，跳转的路径
-                .and().authorizeRequests()
-                .antMatchers("/login*", "/register*","/userLogin","/user/getUserBySession","/doc.html").permitAll()      //设置不需要认证路径
-                .antMatchers("/static/**").permitAll()      //设置不需要认证路径
-                .antMatchers("/webjars/**").permitAll()      //设置不需要认证路径
-                .antMatchers("/testPort").permitAll()      //设置不需要认证路径
-                .anyRequest().authenticated()  ;         //全部需要认证
-        httpSecurity.headers().frameOptions().disable();
-        // 添加JWT filter
-        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+//        httpSecurity.logout().logoutUrl("/logout").logoutSuccessUrl("/test/hello").permitAll();
+//        httpSecurity.formLogin()        //自定义登录页面
+//                .loginPage("/login.jsp")                //登录页面
+//                .loginProcessingUrl("/userLogin")      //登录访问路径
+////                .defaultSuccessUrl("/index.html").permitAll() // 登录成功之后，跳转的路径。
+//                .permitAll()       //登录成功后，跳转的路径
+//                .and().authorizeRequests()
+//                .antMatchers("/login*", "/register*","/userLogin","/user/getUserBySession","/doc.html").permitAll()      //设置不需要认证路径
+//                .antMatchers("/static/**").permitAll()      //设置不需要认证路径
+//                .antMatchers("/webjars/**").permitAll()      //设置不需要认证路径
+//                .antMatchers("/testPort").permitAll()      //设置不需要认证路径
+//                .anyRequest().authenticated()
+//                .and().csrf().disable(); // 关闭csrf防护
+//
+//        ;         //全部需要认证
+//        httpSecurity.headers().frameOptions().disable();
+//        // 添加JWT filter
+//        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         //csrf防护关闭
 //        httpSecurity.headers().frameOptions().disable();
@@ -133,6 +133,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
         // 添加JWT filter
 //        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
         // 添加CORS filter
+//        httpSecurity.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
+
+        httpSecurity.formLogin()
+                .loginPage("/login.jsp") // 设置登录页面
+                .loginProcessingUrl("/user/login") // 登录请求访问路径
+                .defaultSuccessUrl("/toPage")
+                .permitAll() // 登录成功之后，跳转的路径。
+                .and()
+                .authorizeRequests()
+                .antMatchers("/", "/hello/sayHello", "/user/login").permitAll()
+                .antMatchers("/static/**").permitAll()      //设置不需要认证路径
+                .antMatchers("*.js").permitAll()      //设置不需要认证路径
+                .antMatchers("*.css").permitAll()      //设置不需要认证路径
+                .antMatchers("/webjars/**").permitAll()      //设置不需要认证路径
+                .anyRequest().authenticated() // 设置其他请求需要认证
+                .and().csrf().disable(); // 关闭csrf防护
+        httpSecurity.headers().frameOptions().disable();
+        // 添加JWT filter
+        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+
+//        csrf防护关闭
+        httpSecurity.headers().frameOptions().disable();
+//         添加Logout filter
+        httpSecurity.logout().logoutUrl("/logout").logoutSuccessHandler(logoutSuccessHandler);
+//         添加JWT filter
+        httpSecurity.addFilterBefore(authenticationTokenFilter, UsernamePasswordAuthenticationFilter.class);
+//         添加CORS filter
         httpSecurity.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
 
     }
@@ -141,8 +168,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
      * 强散列哈希加密实现
      */
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder()
-    {
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -151,8 +177,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
      * 身份认证接口
      */
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception
-    {
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
     }
 }

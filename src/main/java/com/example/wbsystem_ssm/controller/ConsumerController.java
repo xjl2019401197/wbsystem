@@ -1,5 +1,6 @@
 package com.example.wbsystem_ssm.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.wbsystem_ssm.entity.*;
 import com.example.wbsystem_ssm.service.CardService;
@@ -32,7 +33,7 @@ public class ConsumerController {
 
     @GetMapping("/startUp")
     public ResultBean startUp(HttpServletRequest request, HttpServletResponse response) {
-        User user = (User) request.getSession().getAttribute("user");
+        User user = JSON.parseObject(String.valueOf(request.getSession().getAttribute("user")),User.class) ;
         Integer userId = Integer.parseInt(request.getParameter("userId"));
         Integer cardId = Integer.parseInt(request.getParameter("cardId"));
         Integer configure = Integer.parseInt(request.getParameter("configure"));
