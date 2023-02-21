@@ -63,7 +63,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     private JwtAuthenticationTokenFilter authenticationTokenFilter;
-
+    /**
+     * 认证失败处理类
+     */
+    @Autowired
+    private AuthenticationEntryPointImpl unauthorizedHandler;
 
     /**
      * 解决 无法直接注入 AuthenticationManager
@@ -139,7 +143,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login.jsp") // 设置登录页面
                 .loginProcessingUrl("/user/login") // 登录请求访问路径
                 .defaultSuccessUrl("/toPage")
+                .failureHandler(new MyAuthenticationFailureHandler())
+
                 .permitAll() // 登录成功之后，跳转的路径。
+                .and()
+                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .authorizeRequests()
                 .antMatchers("/", "/hello/sayHello", "/user/login").permitAll()
