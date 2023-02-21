@@ -106,7 +106,7 @@ public class User implements Serializable {
     private Integer deleteFlag;
 
     /**
-     * 是否禁用 0：否,1： 是
+     * 是否禁用 0：禁用,1： 启用
      */
     private Integer state;
 }

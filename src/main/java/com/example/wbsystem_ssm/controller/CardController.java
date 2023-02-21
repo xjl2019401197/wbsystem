@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.wbsystem_ssm.entity.*;
 import com.example.wbsystem_ssm.service.CardService;
+import com.example.wbsystem_ssm.service.ConsumerService;
 import com.example.wbsystem_ssm.service.RefundService;
 import com.example.wbsystem_ssm.service.UserService;
 import com.github.yulichang.wrapper.MPJLambdaWrapper;
@@ -14,12 +15,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.apache.commons.lang3.StringUtils;
+import sun.util.resources.LocaleData;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +39,9 @@ public class CardController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ConsumerService consumerService;
 
     @GetMapping("/cardList")
     public IPage<CardDto> cardList(HttpServletRequest request, HttpServletResponse response) {
@@ -168,6 +175,9 @@ public class CardController {
         Integer cardId = Integer.parseInt(request.getParameter("cardId"));
        ResultBean resultBean = null;
         try {
+//            ClassLoader classLoader = MineExecutors.class.getClassLoader();
+
+
             //改变用户状态
             User user = userService.getById(userId);
             user.setState(1);
@@ -182,7 +192,11 @@ public class CardController {
             Card card = cardService.getById(cardId);
             card.setTotalMoney(0.0);
             card.setSpendMoney(0.0);
+            card.setLevel(0);
             cardService.updateById(card);
+            shutDownALl();
+//            Class aClass = classLoader.loadClass("com.example.wbsystem_ssm.executor.MineExecutors");
+
             resultBean = new ResultBean();
             resultBean.setData(true);
         } catch (Exception e) {
@@ -192,8 +206,17 @@ public class CardController {
         } finally {
             return resultBean;
         }
-
-
     }
+    public void shutDownALl(){
+            List<Card> list = cardService.list(new QueryWrapper<Card>().eq("state", 1));
+            list.stream().forEach(card -> card.setState(0));
+            cardService.updateBatchById(list);
+            for (Card card : list) {
+                List<Consumer> consumers = consumerService.list(new QueryWrapper<Consumer>().eq("card_id", card.getCardId()));
+                consumers.get(consumers.size() - 1).setEndTime(LocalDateTime.now());
+                consumerService.updateById(consumers.get(consumers.size() - 1));
+            }
+    }
+
 
 }
