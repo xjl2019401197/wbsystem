@@ -20,7 +20,6 @@ public class Card implements Serializable {
      * 卡id
      */
     @TableId(type = IdType.AUTO)
-    @TableField("card_id")
     private Integer cardId;
 
     /**

@@ -101,7 +101,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         System.out.println("页面请求");
 
         //自定义403页面
-//        http.exceptionHandling().accessDeniedPage("/unauth");
+        httpSecurity.exceptionHandling().accessDeniedPage("/unauth.html");
 //        http.authorizeRequests().anyRequest().permitAll();
 //         开启 Session 会话管理配置
 //        httpSecurity.authorizeRequests().anyRequest().permitAll();
@@ -144,7 +144,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginProcessingUrl("/user/login") // 登录请求访问路径
                 .defaultSuccessUrl("/toPage")
                 .failureHandler(new MyAuthenticationFailureHandler())
-
+                .failureForwardUrl("/toError")
                 .permitAll() // 登录成功之后，跳转的路径。
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
@@ -152,6 +152,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/hello/sayHello", "/user/login").permitAll()
                 .antMatchers("/static/**").permitAll()      //设置不需要认证路径
+                .antMatchers("/unauth.html").permitAll()      //设置不需要认证路径
                 .antMatchers("*.js").permitAll()      //设置不需要认证路径
                 .antMatchers("*.css").permitAll()      //设置不需要认证路径
                 .antMatchers("/webjars/**").permitAll()      //设置不需要认证路径

@@ -1,4 +1,4 @@
-package com.example.wbsystem_ssm.component;
+package com.example.wbsystem_ssm.service;
 
 public interface TaskService {
 

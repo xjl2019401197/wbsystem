@@ -1,5 +1,6 @@
-package com.example.wbsystem_ssm.component;
+package com.example.wbsystem_ssm.executor;
 
+import com.example.wbsystem_ssm.entity.TaskEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.CronTask;

@@ -30,7 +30,6 @@ public class Consumer implements Serializable {
      * 卡id
      */
     @TableId(type = IdType.AUTO)
-    @TableField("consume_id")
     private Integer consumeId;
 
     /**

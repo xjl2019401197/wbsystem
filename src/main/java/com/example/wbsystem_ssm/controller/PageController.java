@@ -27,7 +27,6 @@ public class PageController {
             UserInfo userInfo = (UserInfo) authentication.getPrincipal();
             System.out.println(userInfo);
             String username = userInfo.getUsername();
-            System.out.println(username);
             User user = userService.getOne(new QueryWrapper<User>().eq("id_card", username));
             HttpSession session = request.getSession();
             session.setAttribute("user", JSON.toJSONString(user));

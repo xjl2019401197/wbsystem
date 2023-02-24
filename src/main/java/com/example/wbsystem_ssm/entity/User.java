@@ -26,7 +26,6 @@ public class User implements Serializable {
      * 用户主键
      */
     @TableId(type = IdType.AUTO)
-    @TableField("user_id")
     private Integer userId;
 
     /**

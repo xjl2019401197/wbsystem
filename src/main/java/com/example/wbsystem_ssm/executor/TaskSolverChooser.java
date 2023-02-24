@@ -1,5 +1,6 @@
-package com.example.wbsystem_ssm.component;
+package com.example.wbsystem_ssm.executor;
 
+import com.example.wbsystem_ssm.service.TaskService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
@@ -14,7 +15,7 @@ import java.util.Map;
 @Component
 public class TaskSolverChooser implements ApplicationContextAware {
 
-  private ApplicationContext applicationContext;
+  private static ApplicationContext applicationContext;
 
   private Map<Integer, TaskService> chooseMap = new HashMap<>(16);
 

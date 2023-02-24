@@ -23,7 +23,6 @@ public class Equip  implements Serializable {
      * 设备id
      */
     @TableId(type = IdType.AUTO)
-    @TableField("equip_ip")
     private Integer equipId;
     /**
      * 名称
