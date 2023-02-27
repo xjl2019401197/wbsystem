@@ -327,7 +327,7 @@ var contextmenuCallback = {
 	获取不到垃圾箱的。但又想让垃圾桶的加一个del= true属性。*/
 		var trashBin = getInfo(-1);
 		trashBin.del = true;
-		// trashBin.src = 'img/rubbishIN.png';
+		// trashBin.src = 'static/img/rubbishIN.png';
 		//删除了，说明垃圾桶满了。不加也行，因在setfile中判断了
 		setFile(_ID);
 	},
@@ -363,7 +363,7 @@ var contextmenuCallback = {
 			return true;
 		});
 		rubbish.item.del = false;//无垃圾了，渲染Out图
-		trashImg.src = 'img/rubbishOut.png';
+		trashImg.src = 'static/img/rubbishOut.png';
 	},
 	//垃圾箱全部还原
 	restoreElementAll: function(e) {
@@ -540,7 +540,7 @@ function setFile(pid) {
 			file.classList.add('rubbish');
 			
 		}
-		img.src = `img/${item.type}.png`;
+		img.src = `static/img/${item.type}.png`;
 		p.className = 'boxName';
 		p.innerHTML = `${item.name}`;
 
@@ -592,7 +592,7 @@ istap = true属性， 有属性的话，就给改文件夹套一个自定义ip�
 	垃圾文件了，都还原了呗，那么垃圾桶的del = false;*/
 		if(file.item.del == true) {
 				var imgs = file.children[0];
-				imgs.src = 'img/rubbishIN.png';
+				imgs.src = 'static/img/rubbishIN.png';
 		}
 	/*当自定义事件del=true的时候，垃圾桶就渲染的是In这个图
 	默认del属性是false，就是Out的这个图*/
@@ -684,7 +684,7 @@ function collision(file) {
 				//进行了拖拽删除，那就变成true
 					if(trashImg) {
 						console.log(trashImg.src);
-						trashImg.src = 'img/rubbishIN.png';
+						trashImg.src = 'static/img/rubbishIN.png';
 						rubbish.item.del = true;
 		/*确认和垃圾桶碰撞删除之后，就将垃圾桶图换了，并设置
 		一个自定义属性--为了不让渲染视图的时候，将图换成默认*/
@@ -947,7 +947,7 @@ close.addEventListener('click',function(e){
 // var pathList = getParents(_ID);
 
 //下拉换肤功能
-var imgArr = ['img/2.jpg','img/1.jpg','img/3.jpg','img/4.jpg','img/5.jpg'];
+var imgArr = ['static/img/2.jpg','static/img/1.jpg','static/img/3.jpg','static/img/4.jpg','static/img/5.jpg'];
 (function(){
 	var bg = document.querySelector('.bg');
 	var pic = bg.children[0];

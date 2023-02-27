@@ -18,7 +18,7 @@ spring:
     prefix:
     encoding: UTF-8
     cache: false
-    suffix: .html
+    suffix:
     servlet:
       content-type: text/html
   redis:
