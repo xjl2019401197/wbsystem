@@ -104,8 +104,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity.exceptionHandling().accessDeniedPage("/unauth.html");
 //        http.authorizeRequests().anyRequest().permitAll();
 //         开启 Session 会话管理配置
-//        httpSecurity.authorizeRequests().anyRequest().permitAll();
-//        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/**").permitAll();
 //        Jedis jedis = JedisUtil.getJedisCon();
 //        if (jedis.get("user") != null ) {
 //            System.out.println(jedis.get("user"));

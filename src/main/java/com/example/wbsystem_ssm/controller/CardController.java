@@ -1,6 +1,7 @@
 package com.example.wbsystem_ssm.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.wbsystem_ssm.entity.*;
@@ -81,6 +82,23 @@ public class CardController {
         }
     }
 
+    @GetMapping("/card/status")
+    public ResultBean cardStatus(HttpServletRequest request, HttpServletResponse response){
+        HttpSession session = request.getSession();
+        User currentUser = JSON.parseObject((String)session.getAttribute("user"),User.class);
+
+        ResultBean result = null;
+        try{
+            Card card = cardService.getOne(new QueryWrapper<Card>().eq("user_id",currentUser.getUserId()));
+            if(card.getState() != 1)throw new Exception();
+            result = new ResultBean(card.getState());
+
+        }catch (Exception e){
+            result = new ResultBean(e);
+        }finally {
+            return result;
+        }
+    }
     @GetMapping("/card/add")
     public ResultBean cardAdd(HttpServletRequest request, HttpServletResponse response) {
 

@@ -1,75 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Document</title>
-<link rel="stylesheet" href="static/desk/css/index.css">
-<link rel="stylesheet" href="static/desk/css/layui.css">
-	<script>if (window.top !== window.self) {
-		window.top.location = window.location;
-	}</script>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/desk/css/index.css">
+    <script>if (window.top !== window.self) {
+        window.top.location = window.location;
+    }</script>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="./static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="./static/css/fontawesome-free-5.1.1-web/css/all.min.css" rel="stylesheet">
+    <link href="./static/css/animate.css" rel="stylesheet">
+    <link href="./static/css/style.css?v=4.1.0" rel="stylesheet">
+    <link href="./static/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
+    <link href="./static/js/layui/css/layui.css" rel="stylesheet">
+    <link href="./static/css/common_zh.css" rel="stylesheet">
 </head>
 <body>
 <div class="files">
-	<!-- <div class="file rubbish" id="rubbish"></div> -->
-<!-- 	<div class="file hover">
-		<img src="img/video.png" alt="" class="img">
-		<input type="text">
-		<p class="boxName">新建文件夹</p>
-	</div> -->
+    <!-- <div class="file rubbish" id="rubbish"></div> -->
+    <!-- 	<div class="file hover">
+            <img src="img/video.png" alt="" class="img">
+            <input type="text">
+            <p class="boxName">新建文件夹</p>
+        </div> -->
 </div>
 <ul id="list">
-	<!-- 	<li>
-		<p>新建……</p>
-		<ul>
-			<li>
-				<p class="createF">新建文件夹</p>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<p>上传文件</p>
-	</li>
-	<li>
-		<p>排序方式</p>
-		<ul>
-			<li>
-				<p>名称排序</p>
-			</li>
-			<li>
-				<p>时间排序</p>
-			</li>
-			<li>
-				<p>类型排序</p>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<p>刷新</p>
-	</li> -->
+    <!-- 	<li>
+        <p>新建……</p>
+        <ul>
+            <li>
+                <p class="createF">新建文件夹</p>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>上传文件</p>
+    </li>
+    <li>
+        <p>排序方式</p>
+        <ul>
+            <li>
+                <p>名称排序</p>
+            </li>
+            <li>
+                <p>时间排序</p>
+            </li>
+            <li>
+                <p>类型排序</p>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>刷新</p>
+    </li> -->
 </ul>
 <ul class="sublist">
-	<!-- <li>
-		<p>删除</p>
-	</li>
-	<li>
-		<p>重命名</p>
-	</li> -->
+    <!-- <li>
+        <p>删除</p>
+    </li>
+    <li>
+        <p>重命名</p>
+    </li> -->
 </ul>
 <section class="bg">
-	<div></div>
+    <div></div>
 </section>
 <div class="back">
-	<svg t="1677233006260" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1712" width="50" height="50">
-		<path d="M810.666667 213.333333l-85.333334-54.186666V42.666667h85.333334zM810.666667 512h85.333333v-53.717333l-384-268.8-384 268.8V512h85.333333v384h128v-61.056a170.666667 170.666667 0 1 1 341.333334 0V896h128v-384z m85.333333 469.333333h-298.666667v-146.389333a85.333333 85.333333 0 1 0-170.666666 0V981.333333H128v-384H42.666667V413.866667L512 85.333333l469.333333 328.533334V597.333333h-85.333333v384z" fill="#2E2F30" p-id="1713">
-	</path>
-	</svg></div>
+    <svg t="1677233006260" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+         p-id="1712" width="50" height="50">
+        <path d="M810.666667 213.333333l-85.333334-54.186666V42.666667h85.333334zM810.666667 512h85.333333v-53.717333l-384-268.8-384 268.8V512h85.333333v384h128v-61.056a170.666667 170.666667 0 1 1 341.333334 0V896h128v-384z m85.333333 469.333333h-298.666667v-146.389333a85.333333 85.333333 0 1 0-170.666666 0V981.333333H128v-384H42.666667V413.866667L512 85.333333l469.333333 328.533334V597.333333h-85.333333v384z"
+              fill="#2E2F30" p-id="1713">
+        </path>
+    </svg>
+</div>
 <!-- 上传文件 -->
-<input type="file" id="fileBtn" name="" class="upload" />
+<input type="file" id="fileBtn" name="" class="upload"/>
 <!-- 双击打开文件详情 -->
 <div class="fileDetail">
-	<div></div>
-	<a href="javascript:;">X</a>
+    <div></div>
+    <a href="javascript:;">X</a>
 </div>
 <!-- 面包屑导航 -->
 <!-- <div class="paths">
@@ -79,9 +90,9 @@
 </div> -->
 <!-- 重命名遮罩层 -->
 <div class="maskBar">
-	<div>抱歉~文件重名啦!
-		<a href="javascript:;"></a>
-	</div>
+    <div>抱歉~文件重名啦!
+        <a href="javascript:;"></a>
+    </div>
 
 </div>
 <!-- 下拉换肤 -->
@@ -89,59 +100,102 @@
 <a href="javasctipt:;" class="skin"></a>
 <!-- 时钟 -->
 <div class="box3D">
-	<div class="watch">
-		<img src="static/img/1.png" alt="">
-		<img src="static/img/2.png" alt="">
-		<img src="static/img/3.png" alt="">
-		<img src="static/img/4.png" alt="">
-		<img src="static/img/5.png" alt="">
-		<img src="static/img/6.png" alt="">
-		<img src="static/img/7.png" alt="">
-		<img src="static/img/8.png" alt="">
-		<div class="hours"></div>
-		<div class="minutes"></div>
-		<div class="seconds"></div>
-	</div>
-	<span class="shadow"></span>
+    <div class="watch">
+        <img src="static/img/1.png" alt="">
+        <img src="static/img/2.png" alt="">
+        <img src="static/img/3.png" alt="">
+        <img src="static/img/4.png" alt="">
+        <img src="static/img/5.png" alt="">
+        <img src="static/img/6.png" alt="">
+        <img src="static/img/7.png" alt="">
+        <img src="static/img/8.png" alt="">
+        <div class="hours"></div>
+        <div class="minutes"></div>
+        <div class="seconds"></div>
+    </div>
+    <span class="shadow"></span>
 </div>
 <!-- 展示台 -->
 <div class="showTable">
-	<img src="static/img/clock.png" alt="" class="clock">
-	<img src="static/img/calendar.png" alt="" class="calendar">
+    <img src="static/img/clock.png" alt="" class="clock">
+    <img src="static/img/calendar.png" alt="" class="calendar">
 </div>
 <!-- 日历 -->
 <div class="wrap">
-	<div class="main">
-		<div class="handle">
-			<p class="itme">14:41:45</p>
-			<span class="year"><!--2017年7月19日--> </span>
-			<span>六月二十六</span>
-		</div>
-		<div class="cons">
+    <div class="main">
+        <div class="handle">
+            <p class="itme">14:41:45</p>
+            <span class="year"><!--2017年7月19日--> </span>
+            <span>六月二十六</span>
+        </div>
+        <div class="cons">
 			<span class="YTD">
 				2017年6月
 			</span>
-			<span class="updown">
-				<span><img src="static/img/up.png" alt="" /></span>
-				<span><img src="static/img/down.png" alt="" /></span>
+            <span class="updown">
+				<span><img src="static/img/up.png" alt=""/></span>
+				<span><img src="static/img/down.png" alt=""/></span>
 			</span>
-			<ul class="list claearFix">
-				<li>日</li>
-				<li>一</li>
-				<li>二</li>
-				<li>三</li>
-				<li>四</li>
-				<li>五</li>
-				<li>六</li>
-			</ul>
-			<div id="all">
-				<ul id="list2"></ul>
-			</div>
-		</div>
-		<div class="food"></div>
-	</div>
+            <ul class="list claearFix">
+                <li>日</li>
+                <li>一</li>
+                <li>二</li>
+                <li>三</li>
+                <li>四</li>
+                <li>五</li>
+                <li>六</li>
+            </ul>
+            <div id="all">
+                <ul id="list2"></ul>
+            </div>
+        </div>
+        <div class="food"></div>
+    </div>
 </div>
+
+
+<div id="login" style="display: none">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title" style="text-align:center;margin:auto;">
+                        <h5 align="center">登录</h5>
+                    </div><!--ibox-title-->
+
+                    <div class="ibox-content">
+                        <form class="m-t" role="form">
+                            <div class="form-group">
+                                <input type="text" name="username" id="account" class="form-control" placeholder="账号"
+                                       required="">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" id="password" class="form-control"
+                                       placeholder="密码" required="">
+                            </div>
+                            <button id="btnLogin" onclick="login()" type="button"
+                                    class="btn btn-primary block full-width m-b">登 录
+                            </button>
+
+
+                            <p class="text-muted text-center">
+                                <a href="rePassword.html">
+                                    <small>忘记密码了？</small>
+                                </a> | <a href="register.jsp">注册一个新账号</a>
+                            </p>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
+
 <!-- 封装的框架 -->
 <script src="static/desk/js/m.touch.js"></script>
 
@@ -153,6 +207,72 @@
 <script src="static/desk/js/table.js"></script>
 <!-- 处理业务逻辑，封装index.js中复用的内容 -->
 <script src="static/desk/js/index.js"></script>
+
+<!-- 全局js -->
+<script src="./static/js/jquery.min.js?v=2.1.4"></script>
+
+<script src="./static/js/bootstrap.min.js?v=3.3.6"></script>
+<script src="./static/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="./static/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="./static/js/plugins/layer/layer.min.js"></script>
+
+<!-- 自定义js -->
+<script src="./static/js/hplus.js?v=4.1.0"></script>
+<script type="text/javascript" src="./static/js/contabs.js"></script>
+
+<!-- 第三方插件 -->
+<script src="./static/js/plugins/pace/pace.min.js"></script>
+
+<script src="./static/js/layui/layui.all.js"></script>
+<script src="./static/js/vue.2.6.11.js"></script>
+<script src="./static/js/axios.js"></script>
+
+<script type="text/javascript" src="./static/js/content.js"></script>
+
+<script>
+    layui.use(['layer', 'form'], function () {
+        var layer = layui.layer
+            , form = layui.form;
+
+    });
+    $(function () {
+        open();
+        setInterval(function () {//每10分钟弹窗预警处理提示
+            timer();
+
+        },5000)
+    });
+
+    function timer() {
+        $.ajax({
+                type: "get",
+                url: "/card/status",
+                async: false,
+                success: function (data) {
+                    if (data.data != 0)
+                        layer.closeAll();//关闭所有layer层，防止重复弹窗
+                    else open();
+                },
+                error: function () {
+                    layer.alert("预警值查询错误！");
+                }
+    }) //600秒 （10分钟
+    }
+    function open() {
+        layer.open({
+            type: 1,
+            closeBtn: 0,
+            shadeClose: false,//点击弹框以外的区域关闭弹框
+            skin: 'demo-class',
+            area: ['60%', '60%'],
+            title: false,
+            content: $('#login'),
+            move: false,//禁止拖拽弹框
+
+        });
+
+    }
+</script>
 </html>
 
 
