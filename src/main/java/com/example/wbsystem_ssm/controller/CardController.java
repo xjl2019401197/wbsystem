@@ -85,12 +85,13 @@ public class CardController {
     @GetMapping("/card/status")
     public ResultBean cardStatus(HttpServletRequest request, HttpServletResponse response){
         HttpSession session = request.getSession();
-        User currentUser = JSON.parseObject((String)session.getAttribute("user"),User.class);
 
         ResultBean result = null;
         try{
+            if(session.getAttribute("user") == null)throw new Exception();
+            User currentUser = JSON.parseObject((String)session.getAttribute("user"),User.class);
             Card card = cardService.getOne(new QueryWrapper<Card>().eq("user_id",currentUser.getUserId()));
-            if(card.getState() != 1)throw new Exception();
+            if(card.getState() == 1)throw new Exception();
             result = new ResultBean(card.getState());
 
         }catch (Exception e){

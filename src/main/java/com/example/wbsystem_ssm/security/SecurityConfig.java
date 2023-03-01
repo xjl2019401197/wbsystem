@@ -152,6 +152,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/hello/sayHello", "/user/login").permitAll()
                 .antMatchers("/static/**").permitAll()      //设置不需要认证路径
                 .antMatchers("/unauth.html").permitAll()      //设置不需要认证路径
+                .antMatchers("/desk.html").permitAll()      //设置不需要认证路径
                 .antMatchers("*.js").permitAll()      //设置不需要认证路径
                 .antMatchers("*.css").permitAll()      //设置不需要认证路径
                 .antMatchers("/webjars/**").permitAll()      //设置不需要认证路径

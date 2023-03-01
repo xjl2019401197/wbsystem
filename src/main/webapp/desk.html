@@ -235,30 +235,38 @@
             , form = layui.form;
 
     });
+    var count = 0;
     $(function () {
-        open();
+        timer();
         setInterval(function () {//每10分钟弹窗预警处理提示
             timer();
 
-        },5000)
+        }, 60000)
     });
 
     function timer() {
         $.ajax({
-                type: "get",
-                url: "/card/status",
-                async: false,
-                success: function (data) {
-                    if (data.data != 0)
-                        layer.closeAll();//关闭所有layer层，防止重复弹窗
-                    else open();
-                },
-                error: function () {
-                    layer.alert("预警值查询错误！");
-                }
-    }) //600秒 （10分钟
+            type: "get",
+            url: "/card/status",
+            async: false,
+            success: function (data) {
+                if (data.data == 0)
+                    close();
+                else open();
+            },
+            error: function () {
+                layer.alert("预警值查询错误！");
+            }
+        }) //600秒 （10分钟
+    }
+
+    function close() {
+        count = 0;
+        layer.closeAll();//关闭所有layer层，防止重复弹窗
+
     }
     function open() {
+        if(count == 0)
         layer.open({
             type: 1,
             closeBtn: 0,
@@ -268,9 +276,57 @@
             title: false,
             content: $('#login'),
             move: false,//禁止拖拽弹框
+            success: function () {
+                count++;
+            }
 
         });
+    }
 
+    function login() {
+        //账号
+        var account = $('#account').val().trim();
+        var pwd = $('#password').val().trim();
+
+        if (account.length < 1) {
+            layer.msg('用户名不能为空!');
+            return;
+        }
+        if (password.length < 1) {
+            layer.msg('密码不能为空!');
+            return;
+        }
+        $.ajax({
+               url: "userLogin?account=" + account + "&pwd=" + pwd,
+            type: "get",
+            success: function (data) {
+                if (data.data === "0") {
+                    layer.msg('账户不存在', {
+                           icon: 5,
+                        time: 1000 //1秒关闭（如果不配置，默认是3秒）
+                    });
+                } else if (data.data === "1") {
+                    layer.msg('密码错误', {
+                           icon: 5,
+                        time: 1000 //1秒关闭（如果不配置，默认是3秒）
+                    });
+                } else if (data.data === "2") {
+                    layer.msg('登陆成功', {
+                          icon: 6,
+                        time: 1000 //1秒关闭（如果不配置，默认是3秒）
+                    }, function () {
+                        $("account").value = '';
+                        $("password").value = '';
+                        close();
+                    });
+                } else {
+                    layer.msg('系统出错', {
+                           icon: 5,
+                        time: 1000 //1秒关闭（如果不配置，默认是3秒）
+                    });
+                }
+            }
+        });
     }
 </script>
 </html>

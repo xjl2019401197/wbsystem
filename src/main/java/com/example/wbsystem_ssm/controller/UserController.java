@@ -35,7 +35,6 @@ public class UserController {
 
         System.out.println("authenticationSession:"+authentication);
         try{
-            String s = (String) session.getAttribute("user");
             user = JSON.parseObject((String) session.getAttribute("user"),User.class);
             System.out.println(user);
         }catch (Exception e){
@@ -47,21 +46,6 @@ public class UserController {
 
 
 
-    @GetMapping("/user/setSession")
-    public User setSession(HttpServletRequest request, HttpServletResponse response) {
-        HttpSession session = request.getSession();
-        User user = null;
-        try{
-
-            session.setAttribute("user",new User());
-            System.out.println(session.getAttribute("user"));
-            user = JSON.parseObject((String)session.getAttribute("user"),User.class);
-        }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            return user;
-        }
-    }
     @GetMapping("/userList")
     public IPage<User> userList(HttpServletRequest request, HttpServletResponse response) {
         String idCard = request.getParameter("idCard2");
