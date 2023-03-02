@@ -1,9 +1,7 @@
-<%@ page import="com.example.wbsystem_ssm.redis.JedisUtil" %>
-<%@ page import="com.alibaba.fastjson.JSON" %>
-<%@ page import="com.example.wbsystem_ssm.entity.User" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<html>
+<!DOCTYPE html>
 
+<html>
 <head>
 
     <meta charset="utf-8">

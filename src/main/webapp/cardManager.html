@@ -407,9 +407,7 @@
                                            name="money" onblur="check()" v-model="money"
                                     >
                                 </div>
-                            </div>
 
-                            <div class="form-group">
                                 <div class="col-sm-12">
                                     <label class="col-sm-3 control-label">方式：</label>
                                     <div class="col-xs-9">
@@ -423,6 +421,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </form>
 
                         <p class="btn_center" style="text-align: center">
@@ -727,7 +726,7 @@
                     shadeClose: true,
                     content: $('#topUp'),
                     success: function (layero, index) {
-                        vue3.flushMe();
+                        vue4.flushMe();
                     },
                 });
             },

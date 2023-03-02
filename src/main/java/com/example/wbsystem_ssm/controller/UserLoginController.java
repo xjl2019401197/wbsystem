@@ -55,7 +55,6 @@ public class UserLoginController {
             User user = userService.getOne(new QueryWrapper<User>().eq("id_card", idCard));
             HttpSession session = request.getSession();
             session.setAttribute("user", JSON.toJSONString(user));
-//            session.setAttribute("user", user);
             System.out.println("session:"+session.getAttribute("user"));
             Jedis jedis = JedisUtil.getJedisCon();
             jedis.set("user", JSON.toJSONString(user));

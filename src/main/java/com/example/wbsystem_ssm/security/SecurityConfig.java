@@ -149,7 +149,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/hello/sayHello", "/user/login").permitAll()
+                .antMatchers("/", "/userLogin", "/user/login").permitAll()
                 .antMatchers("/static/**").permitAll()      //设置不需要认证路径
                 .antMatchers("/unauth.html").permitAll()      //设置不需要认证路径
                 .antMatchers("/desk.html").permitAll()      //设置不需要认证路径
