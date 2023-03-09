@@ -39,8 +39,8 @@
                                <span class="block m-t-xs">
                                    <strong class="font-bold">{{user.idCard}}</strong>
                                </span>
-                                <span class="text-muted text-xs block">{{user.userType == 0? '管理员':user.userType == 1?'收银人员':'普通用户'}}<b
-                                        class="caret"></b></span>
+                                <span class="text-muted text-xs block">{{user.userType == 0? '管理员':user.userType == 1?'收银人员':'普通用户'}}
+                                    <b class="caret"></b></span>
                                 </span>
                         </a>
 
@@ -53,9 +53,16 @@
                     </div>
                 </li>
                 <li>
-                    <a href="shouye.html">
+                    <a class="J_menuItem" href="shouye.html">
                         <i class="fa fa-home"></i>
                         <span class="nav-label">主页</span>
+                    </a>
+
+                </li>
+                <li>
+                    <a href="shouye.html">
+                        <i class="fa fa-male"></i>
+                        <span class="nav-label">用户子系统</span>
                         <span class="fa arrow"></span>
                     </a>
                     <ul class="nav nav-second-level">
@@ -70,6 +77,17 @@
                         <li>
                             <a class="J_menuItem" href="userManager.html" data-index="0">用户管理</a>
                         </li>
+                    </ul>
+
+                </li>
+                <li>
+                    <a href="shouye.html">
+                        <i class="fa fa-list"></i>
+                        <span class="nav-label">清单子系统</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level">
+
                         <li>
                             <a class="J_menuItem" href="moneyDayManager.html">日收入清单</a>
                         </li>
@@ -100,7 +118,7 @@
             </button>
             <nav class="page-tabs J_menuTabs">
                 <div class="page-tabs-content">
-                    <a href="shouye.html" class="active J_menuTab" data-id="shouye.html">首页</a>
+                    <a class="active J_menuTab" data-id="shouye.html">首页</a>
                 </div>
             </nav>
             <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>

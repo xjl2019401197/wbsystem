@@ -24,8 +24,8 @@ public class PageController {
         String page = "login.jsp";
         try{
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            if(authentication.getPrincipal() == null) throw new Exception();
             UserInfo userInfo = (UserInfo) authentication.getPrincipal();
-            System.out.println(userInfo);
             String username = userInfo.getUsername();
             User user = userService.getOne(new QueryWrapper<User>().eq("id_card", username));
             HttpSession session = request.getSession();

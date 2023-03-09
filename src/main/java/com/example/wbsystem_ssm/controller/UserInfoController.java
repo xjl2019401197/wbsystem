@@ -9,6 +9,7 @@ import redis.clients.jedis.Jedis;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /*
 
@@ -40,10 +41,15 @@ public class UserInfoController extends HttpServlet {
 public class UserInfoController{
     @GetMapping("/userInfo")
     public User userInfo(HttpServletRequest request,HttpServletResponse response){
-        Jedis jedis = JedisUtil.getJedisCon();
-        System.out.println(JSON.parseObject(jedis.get("user")));
-        User user = JSON.parseObject(jedis.get("user"), User.class);
-        return user;
+        User user = null;
+        try{
+            HttpSession session = request.getSession();
+            user = JSON.parseObject((String) session.getAttribute("user"),User.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            return user;
+        }
     }
 
 }

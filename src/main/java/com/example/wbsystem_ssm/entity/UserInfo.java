@@ -1,4 +1,5 @@
 package com.example.wbsystem_ssm.entity;
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.security.core.GrantedAuthority;
@@ -20,6 +21,15 @@ public class UserInfo extends User {
         super(username, password, authorities);
     }
 
+    /**
+     * 账户是否未过期,过期无法验证
+     */
+    @JSONField(serialize = false)
+    @Override
+    public boolean isAccountNonExpired()
+    {
+        return true;
+    }
 
     public Integer getType() {
         return type;

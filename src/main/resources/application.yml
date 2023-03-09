@@ -22,8 +22,8 @@ spring:
     servlet:
       content-type: text/html
   redis:
-    host: 124.223.182.14
-    port: 6399
+    host: 39.98.69.123
+    port: 6379
     database: 0
     password: xjl2550908862xjl011025.
     jedis:
