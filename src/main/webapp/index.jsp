@@ -115,7 +115,7 @@
                     data-id="signIn.html" seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">&copy; 2021-2022 <a href="http://www.zi-han.net/" target="_blank">网吧会员管理系统</a>
+            <div class="pull-right">&copy; 2023 <a href="http://www.zi-han.net/" target="_blank">网吧管理系统</a>
             </div>
         </div>
     </div>

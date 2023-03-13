@@ -36,18 +36,17 @@ public class StatisticsController {
     private UserService userService;
     @Autowired
     private CardService cardService;
+    //清单列表
     @GetMapping("/statistics")
     public List<TopUpDto> statistics(HttpServletRequest request, HttpServletResponse response){
-
+        //获取req的参数
         String type = request.getParameter("type");
         String phone = request.getParameter("phone2");
         String idCard = request.getParameter("idCard2");
         String way = request.getParameter("way2");
-        System.out.println("idCard:"+idCard+"  "+phone+"  "+way);
+        //对比参数是日收入清单还是月收入清单
         String day = DateUtil.getNowday();
-        String tomorrow = DateUtil.getTomorrow();
         String nowMonth = DateUtil.getNowMonth();
-        String nextMonth = DateUtil.getNextMonth();
         List<TopUp> list = null;
         ArrayList<TopUpDto> topUpDtos = new ArrayList<TopUpDto>();
         try {
@@ -61,6 +60,7 @@ public class StatisticsController {
             for (TopUp topUp : list) {
                 boolean flag = true;
                 User user = userService.getById(topUp.getUserId());
+                //变量的深度复制，用于页面展示的实体类
                 TopUpDto topUpDto = new TopUpDto();
                 PropertyUtils.copyProperties(topUpDto, topUp);
                 topUpDto.setCreateUserName(user.getNickName());
@@ -71,7 +71,6 @@ public class StatisticsController {
                 if(flag)
                 topUpDtos.add(topUpDto);
             }
-            System.out.println("topUpDto:"+topUpDtos);
         } catch (Exception e) {
             e.printStackTrace();
         }finally {

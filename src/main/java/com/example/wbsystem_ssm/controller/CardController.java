@@ -182,8 +182,6 @@ public class CardController {
         Integer cardId = Integer.parseInt(request.getParameter("cardId"));
        ResultBean resultBean = null;
         try {
-//            ClassLoader classLoader = MineExecutors.class.getClassLoader();
-
 
             //改变用户状态
             User user = userService.getById(userId);

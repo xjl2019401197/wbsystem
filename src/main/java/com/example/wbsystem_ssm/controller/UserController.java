@@ -46,17 +46,21 @@ public class UserController {
 
 
 
+    //用户列表的获取
     @GetMapping("/userList")
     public IPage<User> userList(HttpServletRequest request, HttpServletResponse response) {
+        //获取req的请求参数
         String idCard = request.getParameter("idCard2");
         String phone = request.getParameter("phone2");
         String sex = request.getParameter("sex2");
         String userId = request.getParameter("userId");
+        //获取当前登录用户的信息
         HttpSession session = request.getSession();
         User user = JSON.parseObject((String)session.getAttribute("user"),User.class);
         String param = request.getParameter("current");
-        Integer page = 1;
+        //mybatisplus提供的分页查和讯
 
+        Integer page = 1;
         if(param != null) page  = Integer.parseInt(param);
         Page pages = new Page<>(page, 5);
         IPage<User> iPage = null;
