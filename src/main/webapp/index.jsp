@@ -44,7 +44,7 @@
                                 </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="login.jsp">安全退出</a>
+                            <li><a href="login.html">安全退出</a>
                             </li>
                         </ul>
                     </div>
@@ -107,7 +107,7 @@
                     </li>
                 </ul>
             </div>
-            <a href="login.jsp" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+            <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
         </div>
         <div class="row J_mainContent" id="content-main">
             <!--子页面展示位置-->

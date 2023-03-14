@@ -13,10 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
 
 import javax.annotation.Resource;
@@ -34,10 +31,11 @@ public class UserLoginController {
     @Resource
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/userLogin")
+    @RequestMapping("/userLogin")
     public ResultBean userLogin(HttpServletRequest request, HttpServletResponse response) {
         String idCard = request.getParameter("account");
         String pwd = request.getParameter("pwd");
+        System.out.println("acc");
         ResultBean resultBean = null;
         Authentication authentication = null;
         try {

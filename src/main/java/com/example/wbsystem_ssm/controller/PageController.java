@@ -21,7 +21,7 @@ public class PageController {
     private UserService userService;
     @RequestMapping("/toPage")
     public String toPage(HttpServletRequest request, HttpServletResponse response){
-        String page = "login.jsp";
+        String page = "login.html";
         try{
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             if(authentication.getPrincipal() == null) throw new Exception();

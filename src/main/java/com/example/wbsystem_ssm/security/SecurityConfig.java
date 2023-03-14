@@ -112,7 +112,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        }
 //        httpSecurity.logout().logoutUrl("/logout").logoutSuccessUrl("/test/hello").permitAll();
 //        httpSecurity.formLogin()        //自定义登录页面
-//                .loginPage("/login.jsp")                //登录页面
+//                .loginPage("/login.html")                //登录页面
 //                .loginProcessingUrl("/userLogin")      //登录访问路径
 ////                .defaultSuccessUrl("/index.html").permitAll() // 登录成功之后，跳转的路径。
 //                .permitAll()       //登录成功后，跳转的路径
@@ -139,11 +139,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        httpSecurity.addFilterBefore(corsFilter, JwtAuthenticationTokenFilter.class);
 
         httpSecurity.formLogin()
-                .loginPage("/login.jsp") // 设置登录页面
-                .loginProcessingUrl("/user/login") // 登录请求访问路径
+                .loginPage("/login.html") // 设置登录页面
+                .loginProcessingUrl("/doLogin") // 登录请求访问路径
                 .defaultSuccessUrl("/toPage")
-                .failureHandler(new MyAuthenticationFailureHandler())
-                .failureForwardUrl("/toError")
+                .failureForwardUrl("/login.html")//认证失败之后 forward跳转
+
+//                .failureHandler(new MyAuthenticationFailureHandler())
+//                .failureForwardUrl("/toError")
                 .permitAll() // 登录成功之后，跳转的路径。
                 .and()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)

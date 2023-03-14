@@ -21,6 +21,6 @@ public class MyAuthenticationFailureHandler implements AuthenticationFailureHand
         result.put("status", 500);
         response.setContentType("application/json;charset=UTF-8");
         String s = new ObjectMapper().writeValueAsString(result);
-        response.encodeRedirectURL("login.jsp");
+        response.encodeRedirectURL("login.html");
     }
 }

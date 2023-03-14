@@ -7,16 +7,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="wbsystem-ssm" />
+        <module name="wbsystem" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="wbsystem-ssm" target="1.8" />
+      <module name="wbsystem" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="wbsystem-ssm" options="-parameters" />
+      <module name="wbsystem" options="-parameters" />
     </option>
   </component>
 </project>

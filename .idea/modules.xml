@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/wbsystem-ssm.iml" filepath="$PROJECT_DIR$/wbsystem-ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wbsystem.iml" filepath="$PROJECT_DIR$/wbsystem.iml" />
     </modules>
   </component>
 </project>

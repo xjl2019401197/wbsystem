@@ -78,7 +78,7 @@
                 </div>
                 <button id="btnLogin" type="button" class="btn btn-primary block full-width m-b">修改</button>
 
-<%--                <p class="text-muted text-center"><small>已经有账户了？</small><a href="login.jsp">点此登录</a>--%>
+<%--                <p class="text-muted text-center"><small>已经有账户了？</small><a href="login.html">点此登录</a>--%>
 <%--                </p>--%>
 
             </form>
@@ -215,7 +215,7 @@
                             icon: 6,
                             time: 2000 //1秒关闭（如果不配置，默认是3秒）
                         }, function(){
-                            window.location.href = "login.jsp";
+                            window.location.href = "login.html";
                         });
                     }else{
                         layer.msg('修改失败', {
