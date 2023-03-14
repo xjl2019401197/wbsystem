@@ -27,7 +27,7 @@ public class AuthenticationEntryPointImpl implements AuthenticationEntryPoint, S
             response.setStatus(200);
             response.setContentType("application/json");
             response.setCharacterEncoding("utf-8");
-        request.getRequestDispatcher("404.html").forward(request,response);
+        request.getRequestDispatcher("401.html").forward(request,response);
 
     }
 }

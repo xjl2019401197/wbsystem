@@ -15,6 +15,7 @@ public class MyAuthenticationFailureHandler implements AuthenticationFailureHand
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+        System.out.println("登录失败");
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("msg", "登录失败: "+exception.getMessage());
         result.put("status", 500);

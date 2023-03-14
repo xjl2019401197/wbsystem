@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 
-    <title>月收入清单</title>
+    <title>日收入清单</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,7 +74,6 @@
                         </button>
                         <a class="collapse-link btn-xs"><span
                                 class="glyphicon-chevron-up glyphicon" aria-hidden="true"></span></a>
-
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -119,6 +118,35 @@
                             </tr>
                             </tbody>
                         </table>
+                        <nav class="mt-5" v-if="projectList.length > 0" style="float:right">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item">
+                                    <a class="page-link" @click="top()">首页</a>
+                                </li>
+                                <li v-if="current <= 1" class="disabled">
+                                    <a class="page-link" >上一页</a></li>
+                                <li class="page-item " v-else="current > 1" >
+                                    <a class="page-link" @click="pre()" >上一页</a></li>
+                                <li class="page-item " v-if="current > 1">
+                                    <a class="page-link" @click="pre()">{{current -1 }}</a>
+                                </li>
+                                <li class="active" >
+                                    <a class="page-link" @click="search()">{{current  }}</a>
+                                </li>
+                                <li class="page-item " v-if="current != pages">
+                                    <a class="page-link" @click="next()">{{current  + 1 }}</a>
+                                </li>
+                                <li class="page-item " v-if="current < pages">
+                                    <a class="page-link" @click="next()">下一页</a>
+                                </li>
+                                <li class="disabled"  v-else="current >= pages">
+                                    <a class="page-link" >下一页</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" @click="last()">末页</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                     <!--                    <div class="row">${pageResult.pageHtml}</div>-->
                 </div>
@@ -331,7 +359,6 @@
                             </div>
                         </form>
 
-
                         <p class="btn_center" style="text-align: center">
                             <button class="btn btn-white btn-bitbucket btn_white_zh" onclick="closeLayer()"><i
                                     class="fas fa-undo-alt"></i> 返回
@@ -422,7 +449,9 @@
             phone2: "",
             idCard2: "",
             way2: "",
-            cardId: ""
+            cardId: "",
+            current: 1,
+            pages: 0
         },
         mounted() {
             let me = this;
@@ -437,7 +466,9 @@
                 url: "/statistics?type=month",
                 type: "get",
                 success: function (data) {
-                    me.projectList = data;
+                    me.projectList = data.records;
+                    me.current = data.current;
+                    me.pages = data.pages;
                 }
             });
             // $.ajax({
@@ -449,6 +480,22 @@
             // });
         },
         methods: {
+            top: function(){
+                this.current = 1;
+                this.search();
+            },
+            last:function(){
+                this.current = this.pages ;
+                this.search();
+            },
+            pre:function(){
+                this.current = this.current -1 ;
+                this.search();
+            },
+            next:function(){
+                this.current = this.current +1 ;
+                this.search();
+            },
             calcDateTime(datetime) {
                 return new Date(+new Date(datetime) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '')
             },
@@ -478,10 +525,14 @@
                     data: {
                         "idCard2": me.idCard2,
                         "phone2": me.phone2,
-                        "way2": me.way2
+                        "way2": me.way2,
+                        "current":me.current
+
                     },
                     success: function (data) {
-                        me.projectList = data;
+                        me.projectList = data.records;
+                        me.current = data.current;
+                        me.pages = data.pages;
                     }
                 });
             }
@@ -509,7 +560,7 @@
                     cardId: $("#zcardId").val()
                 },
                 success: function (data) {
-                    me.lists = data;
+                    me.lists = data.records;
                     me.card = me.lists[0];
                 }
             });
@@ -524,7 +575,7 @@
                         cardId: $("#zcardId").val()
                     },
                     success: function (data) {
-                        me.lists = data;
+                        me.lists = data.records;
                         me.card = me.lists[0];
                     }
                 });

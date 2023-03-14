@@ -35,7 +35,7 @@ public class UserDetailsServiceImpl implements UserDetailsService
         User user = userService.getOne(new QueryWrapper<User>().eq("id_card", username));
         if (StringUtils.isNull(user)) {
             log.info("登录用户：{} 不存在.", username);
-            throw new ServiceException("登录用户：" + username + " 不存在");
+            throw new UsernameNotFoundException("登录用户：" + username + " 不存在");
         }
         UserInfo userInfo = new UserInfo(username, new BCryptPasswordEncoder().encode(user.getPwd()), new HashSet<>());
         userInfo.setType(user.getType());
