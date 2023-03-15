@@ -29,7 +29,33 @@
         /*    background-color: #62A8EA;*/
         /*}*/
     </style>
-
+    <style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
 </head>
 <body class="gray-bg">
 <div class="wrapper wrapper-content animated fadeInRight" id="app">
@@ -87,7 +113,7 @@
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover table_center">
                             <thead>
-                            <tr>
+                            <tr >
                                 <th>会员昵称</th>
                                 <th>会员身份证</th>
                                 <th>会员手机号</th>
@@ -543,6 +569,8 @@
     }
 
 </script>
+
+
 
 <script th:inline="javascript">
 
