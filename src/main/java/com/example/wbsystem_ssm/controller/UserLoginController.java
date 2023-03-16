@@ -13,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
 
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@RestController
+@Controller
 @CrossOrigin
 public class UserLoginController {
     @Autowired
@@ -30,8 +31,13 @@ public class UserLoginController {
 
     @Resource
     private AuthenticationManager authenticationManager;
+//    @PostMapping("/fail")
+//    public String fail(){
+//        return "redirect:/fail.html";
+//    }
 
     @RequestMapping("/userLogin")
+    @ResponseBody
     public ResultBean userLogin(HttpServletRequest request, HttpServletResponse response) {
         String idCard = request.getParameter("account");
         String pwd = request.getParameter("pwd");

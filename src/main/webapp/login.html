@@ -27,6 +27,7 @@
 
 <div class="middle-box text-center loginscreen  animated fadeInDown">
         <h3>欢迎登陆 网吧会员管理系统</h3>
+    <div th:text="${SPRING_SECURITY_LAST_EXCEPTION}"></div>
 
         <form class="m-t" role="form" action="/doLogin" method="post">
             <div class="form-group">
@@ -55,6 +56,7 @@
 <script src="./static/js/layui/layui.all.js"></script>
 <script>
     $(function (){
+        $.ew
         if(session.SPRING_SECURITY_LAST_EXCEPTION != null)
             layer.msg('用户名不能为空!');
 
