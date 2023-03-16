@@ -142,7 +142,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/login.html") // 设置登录页面
                 .loginProcessingUrl("/doLogin") // 登录请求访问路径
                 .defaultSuccessUrl("/toPage")
-                .failureForwardUrl("/login.html")//认证失败之后 forward跳转
+                .successForwardUrl("/toPage")
+//                .failureForwardUrl("/login.html")//认证失败之后 forward跳转
+//                .failureForwardUrl("/fail")     //登录失败跳转地址
 
 //                .failureHandler(new MyAuthenticationFailureHandler())
 //                .failureForwardUrl("/toError")
@@ -151,13 +153,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
                 .and()
                 .authorizeRequests()
-                .antMatchers("/", "/userLogin", "/user/login").permitAll()
+                .antMatchers("/", "/userLogin", "/doLogin").permitAll()
                 .antMatchers("/static/**").permitAll()      //设置不需要认证路径
                 .antMatchers("/unauth.html").permitAll()      //设置不需要认证路径
                 .antMatchers("/desk.html").permitAll()      //设置不需要认证路径
                 .antMatchers("*.js").permitAll()      //设置不需要认证路径
                 .antMatchers("*.css").permitAll()      //设置不需要认证路径
                 .antMatchers("/webjars/**").permitAll()      //设置不需要认证路径
+                .antMatchers("/fail.html").permitAll()  //fail.html不需要被认证
+
                 .anyRequest().authenticated() // 设置其他请求需要认证
                 .and().csrf().disable(); // 关闭csrf防护
         httpSecurity.headers().frameOptions().disable();
