@@ -61,7 +61,6 @@ public class StatisticsController {
                     new MPJLambdaWrapper<TopUp>()
                             .selectAll(TopUp.class)
                             .selectAs( User::getNickName,TopUpDto::getCreateUserName)//别名 t.address AS userAddress
-
                             .select(User::getNickName)
                             .select(User::getIdCard)
                             .select(User::getPhone)
